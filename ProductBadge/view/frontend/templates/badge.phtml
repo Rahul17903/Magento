@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types=1);
+
+/** @var \Codilar\ProductBadge\Block\Badge $block */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$product = $block->getData('product');
+
+if (!$product) {
+    return;
+}
+
+$badge = $block->getBadge($product);
+
+if (!$badge) {
+    return;
+}
+
+$badgeClass = $block->getBadgeClass($badge);
+?>
+
+<span class="product-badge <?= $escaper->escapeHtmlAttr($badgeClass) ?>">
+    <?= $escaper->escapeHtml(__($badge)) ?>
+</span>
