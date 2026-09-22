@@ -1,0 +1,154 @@
+<?php
+/**
+ * Custom pagination
+ *
+ * @var \Magento\Theme\Block\Html\Pager $block
+ */
+
+$collection = $block->getCollection();
+$currentPage = (int) $block->getCurrentPage();
+$lastPage = (int) $block->getLastPageNum();
+
+if (!$collection || $lastPage <= 1) {
+    return;
+}
+?>
+
+<div class="custom-pagination">
+
+    <!-- First Page -->
+    <?php if ($currentPage > 1): ?>
+
+        <a class="pagination-first"
+           href="<?= $block->escapeUrl($block->getFirstPageUrl()) ?>"
+           aria-label="<?= $block->escapeHtmlAttr(__('First Page')) ?>">
+            <span class="double-arrow double-arrow-left"></span>
+        </a>
+
+    <?php else: ?>
+
+        <span class="pagination-first disabled"
+              aria-disabled="true">
+            <span class="double-arrow double-arrow-left"></span>
+        </span>
+
+    <?php endif; ?>
+
+
+    <!-- Previous -->
+    <?php if ($currentPage > 1): ?>
+
+        <a class="pagination-prev"
+           href="<?= $block->escapeUrl($block->getPreviousPageUrl()) ?>">
+            <?= $block->escapeHtml(__('Prev')) ?>
+        </a>
+
+    <?php else: ?>
+
+        <span class="pagination-prev disabled">
+            <?= $block->escapeHtml(__('Prev')) ?>
+        </span>
+
+    <?php endif; ?>
+
+    <!-- Page Numbers -->
+    <div class="pagination-pages">
+
+        <?php
+        $pages = [];
+
+        if ($lastPage <= 4) {
+
+            //If there are only 4 or fewer pages, show all pages.
+            for ($i = 1; $i <= $lastPage; $i++) {
+                $pages[] = $i;
+            }
+
+        } elseif ($currentPage === 1) {
+
+            //  Page 1
+            $pages = [1, 2, 'dots', $lastPage ];
+
+        } elseif ($currentPage === 2) {
+
+            $pages = [1, 2, 3, 'dots', $lastPage ];
+
+        } elseif ($currentPage === 3) {
+
+            $pages = [1, 2, 3, 4, 'dots', $lastPage ];
+
+        } elseif ($currentPage >= $lastPage - 2) {
+
+            $pages = [1, 'dots', $lastPage - 3, $lastPage - 2, $lastPage - 1, $lastPage ];
+
+        } else {
+
+            $pages = [1, 'dots', $currentPage - 1, $currentPage, $currentPage + 1, 'dots', $lastPage ];
+              
+        }
+        ?>
+
+        <?php foreach ($pages as $page): ?>
+
+            <?php if ($page === 'dots'): ?>
+
+                <span class="pagination-dots">...</span>
+
+            <?php elseif ($page == $currentPage): ?>
+
+                <span class="pagination-page current">
+                    <?= $block->escapeHtml($page) ?>
+                </span>
+
+            <?php else: ?>
+
+                <a
+                    class="pagination-page"
+                    href="<?= $block->escapeUrl($block->getPageUrl($page)) ?>"
+                >
+                    <?= $block->escapeHtml($page) ?>
+                </a>
+
+            <?php endif; ?>
+
+        <?php endforeach; ?>
+
+    </div>
+
+
+    <!-- Next -->
+    <?php if ($currentPage < $lastPage): ?>
+
+        <a class="pagination-next"
+           href="<?= $block->escapeUrl($block->getNextPageUrl()) ?>">
+            <?= $block->escapeHtml(__('Next')) ?>
+        </a>
+
+    <?php else: ?>
+
+        <span class="pagination-next disabled">
+            <?= $block->escapeHtml(__('Next')) ?>
+        </span>
+
+    <?php endif; ?>
+
+
+    <!-- Last Page -->
+    <?php if ($currentPage < $lastPage): ?>
+
+        <a class="pagination-last"
+           href="<?= $block->escapeUrl($block->getLastPageUrl()) ?>"
+           aria-label="<?= $block->escapeHtmlAttr(__('Last Page')) ?>">
+            <span class="double-arrow double-arrow-right"></span>
+        </a>
+
+    <?php else: ?>
+
+        <span class="pagination-last disabled"
+              aria-disabled="true">
+            <span class="double-arrow double-arrow-right"></span>
+        </span>
+
+    <?php endif; ?>
+
+</div>

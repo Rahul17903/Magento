@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+
+        <referenceContainer name="header.panel.wrapper"
+                            remove="true"/>
+
+        <referenceBlock name="store.links"
+                        remove="true"/>
+
+        <referenceContainer name="header-wrapper">
+
+            <container name="header.actions"
+                       as="header_actions"
+                       label="Header Actions"
+                       htmlTag="div"
+                       htmlClass="header-actions"
+                       after="catalog.topnav"/>
+
+        </referenceContainer>
+
+        <referenceBlock name="top.links"
+                        template="Magento_Customer::account/header-links.phtml"/>
+
+        <move element="catalog.topnav"
+              destination="header-wrapper"
+              after="logo"/>
+
+        <move element="top.search"
+              destination="header.actions"/>
+
+        <move element="top.links"
+              destination="header.actions"/>
+
+        <move element="minicart"
+              destination="header.actions"/>
+
+    </body>
+</page>

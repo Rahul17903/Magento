@@ -1,0 +1,792 @@
+.checkout-cart-index {
+    .page-main {
+        max-width: 1440px;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+
+    .cart-container {
+        display: grid;
+        grid-template-columns: minmax(0, 765fr) minmax(360px, 555fr);
+        column-gap: 40px;
+        align-items: start;
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 40px;
+        box-sizing: border-box;
+
+        > .form.cart {
+            grid-column: 1;
+            grid-row: 1;
+            width: 100%;
+            min-width: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        > .cart-summary {
+            position: static;
+            grid-column: 2;
+            grid-row: 1;
+            width: 100%;
+            min-width: 0;
+            margin: 0;
+            padding: 30px;
+            background: #f8f9f9;
+            border: 0;
+            border-color: transparent;
+            box-sizing: border-box;
+            .block {
+                border: 0;
+
+                > .title {
+                    border: 0;
+                }
+            }
+
+            .summary.title {
+                display: block;
+                margin: 0 0 28px;
+                font-family: "Proxima Nova", Arial, sans-serif;
+                line-height: 1.2;
+                font-weight: 600;
+                color: #111;
+                font-size: 0;
+
+                &::before {
+                    content: "Order Summary";
+                    font-family: "Proxima Nova", Arial, sans-serif;
+                    font-size: 24px;
+                    line-height: 1.2;
+                    font-weight: 600;
+                    color: #111;
+                }
+
+            }
+
+            .cart-coupon {
+                .title {
+                    position: relative;
+                    margin: 0 0 12px;
+                    padding: 0;
+                    cursor: default;
+
+                    &::after {
+                        display: none !important;
+                    }
+
+                    strong {
+                        display: block;
+                        margin-top: 10px;
+                        padding: 0;
+                        font-family: "Proxima Nova", Arial, sans-serif;
+                        font-size: 14px;
+                        line-height: 1.3;
+                        font-weight: 600;
+                        color: #111;
+                    }
+                }
+
+                .content {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    max-height: none;
+                    margin: 0;
+                    padding: 0;
+                    visibility: visible;
+                    opacity: 1 ;
+                    overflow: visible;
+                }
+            }
+
+            .coupon-control {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+
+                .input-text {
+                    flex: 1 1 auto;
+                    width: auto;
+                    min-width: 0;
+                    height: 54px;
+                    padding: 0 15px;
+                    border: 1px solid #d9d9d9;
+                    border-radius: 5px;
+                    background: #fff;
+                    box-sizing: border-box;
+                }
+
+                .apply,
+                .cancel {
+                    position: absolute;
+                    right: 7px;
+                    flex: 0 0 96px;
+                    width: 76px;
+                    height: 40px;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    border-radius: 5px;
+                    background: #151515;
+                    color: #fff;
+                    font-family: "Proxima Nova", Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+            }
+
+            #cart-totals {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                border: 0;
+
+                .table-wrapper {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .totals {
+                    width: 100%;
+                    margin: 0;
+                    border-collapse: collapse;
+
+                    tr {
+                        border: 0;
+                    }
+
+                    th,
+                    td {
+                        padding-top: 1rem;
+                        border: 0;
+                        font-family: "Proxima Nova", Arial, sans-serif;
+                        font-size: 15px;
+                        line-height: 1.4;
+                        color: #222;
+                    }
+
+                    th {
+                        text-align: left;
+                        font-weight: 400;
+                    }
+
+                    td {
+                        text-align: right;
+                        font-weight: 400;
+                    }
+
+                    .grand.totals {
+                        border-top: 0;
+
+                        th,
+                        td {
+                            padding-top: 10px;
+                            font-size: 17px;
+                            font-weight: 600;
+                            color: #111;
+                        }
+                    }
+                }
+            }
+
+            .checkout-methods-items {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                .item {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .action.checkout {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    width: 100%;
+                    height: 58px;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    border-radius: 3px;
+                    background: #151515;
+                    color: #fff;
+                    font-family: "Proxima Nova", Arial, sans-serif;
+                    font-size: 16px;
+                    font-weight: 500;
+                    cursor: pointer;
+
+                    .checkout-icon {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 20px;
+                        height: 20px;
+                        color: #fff;
+
+                        svg {
+                            display: block;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+
+                    .checkout-text {
+                        display: inline-block;
+                    }
+                }
+
+                .multicheckout {
+                    display: none;
+                }
+            }
+        }
+
+        .cart-page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0 0 22px;
+            padding: 0 0 18px;
+            border-bottom: 1px solid #e5e5e5;
+            box-sizing: border-box;
+
+            .cart-title {
+                width: 72px;
+                margin: 0;
+                font-family: "Proxima Nova", Arial, sans-serif;
+                font-size: 20px;
+                line-height: 100%;
+                font-weight: 600;
+                letter-spacing: 0;
+                color: #000;
+            }
+
+            .item-count {
+                font-family: "Proxima Nova", Arial, sans-serif;
+                font-size: 18px;
+                line-height: 1.2;
+                font-weight: 500;
+                color: #666;
+            }
+        }
+
+        /*------------CART ITEMS TABLE (desktop / base rules) ------------*/
+        #shopping-cart-table {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            border-collapse: collapse;
+            box-sizing: border-box;
+
+            .table-caption {
+                display: none;
+            }
+
+            .cart.item {
+                display: contents;
+            }
+
+            .col.item {
+                display: flex;
+                align-items: flex-start;
+                gap: 18px;
+                width: 100%;
+                padding: 22px 0;
+                border-bottom: 1px solid #e5e5e5;
+                box-sizing: border-box;
+            }
+
+            .product-item-photo {
+                flex: 0 0 160px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 160px;
+                height: 160px;
+                border: 1px solid #e5e5e5;
+                background: #fff;
+                overflow: hidden;
+                box-sizing: border-box;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .product-item-details {
+                flex: 1 1 auto;
+                min-width: 0;
+                display: flex;
+                flex-direction: column;
+                min-height: 160px;
+                box-sizing: border-box;
+            }
+
+            // Name + edit/remove icons on one line
+            .product-item-header {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .product-item-name {
+                display: block;
+                flex: 1 1 auto;
+                min-width: 0;
+                margin: 2px 0 8px;
+                font-family: "Proxima Nova", Arial, sans-serif;
+                font-size: 16px;
+                line-height: 1.4;
+                font-weight: 600;
+                color: #111;
+                white-space: normal;
+                word-break: break-word;
+
+                a {
+                    color: #111;
+                    text-decoration: none;
+                }
+            }
+
+            .item-actions-wrapper {
+                flex: 0 0 auto;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin: 0;
+
+                .towishlist {
+                    display: none !important;
+                }
+
+                .action-edit,
+                .action-delete {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 34px;
+                    height: 34px;
+                    margin: 0;
+                    padding: 0;
+                    border: 1px solid #e5e5e5;
+                    border-radius: 3px;
+                    background: #fff;
+                    color: #333;
+                    text-decoration: none;
+                    font-size: 0;
+                    line-height: 1;
+                    box-sizing: border-box;
+                    transform: rotate(90deg);
+
+                    span {
+                        display: none;
+                    }
+                }
+
+                .action-edit {
+                    &::before {
+                        content: "✎";
+                        display: block;
+                        font-family: Arial, sans-serif;
+                        font-size: 18px;
+                        line-height: 1;
+                        color: #333;
+                    }
+                }
+
+                .action-delete {
+                    &::before {
+                        content: "×";
+                        display: block;
+                        font-family: Arial, sans-serif;
+                        font-size: 24px;
+                        font-weight: 300;
+                        line-height: 1;
+                        color: #333;
+                    }
+                }
+            }
+
+            // SKU / product options block
+            .item-options {
+                margin: 0;
+                padding: 0;
+                font-family: "Proxima Nova", Arial, sans-serif;
+                font-size: 14px;
+                line-height: 1.8;
+                color: #666;
+
+                dt {
+                    display: inline;
+                    margin: 0;
+                    font-weight: 400;
+                }
+
+                dd {
+                    display: inline;
+                    margin: 0 12px 0 3px;
+                }
+            }
+
+            // Qty control
+            .product-item-footer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                width: 100%;
+                margin-top: auto;
+                padding-top: 14px;
+            }
+
+            .field.qty {
+                display: flex;
+                align-items: center;
+                flex: 0 0 auto;
+                width: 105px;
+                height: 34px;
+                margin: 0;
+
+                button {
+                    width: 32px;
+                    height: 32px;
+                    padding: 0;
+                    border: 0;
+                    background: #f5f5f5;
+                    font-family: "Proxima Nova", Arial, sans-serif;
+                    font-size: 18px;
+                    color: #222;
+                    cursor: pointer;
+                }
+
+                input {
+                    width: 41px;
+                    height: 32px;
+                    padding: 0;
+                    border: 0;
+                    border-bottom: 1px solid #ddd;
+                    background: #fff;
+                    text-align: center;
+                    font-family: "Proxima Nova", Arial, sans-serif;
+                    font-size: 14px;
+                    box-sizing: border-box;
+                }
+            }
+
+            .col.subtotal {
+                flex: 0 0 auto;
+                margin: 0;
+                padding: 0;
+                text-align: right;
+                font-family: "Proxima Nova", Arial, sans-serif;
+                font-size: 17px;
+                font-weight: 600;
+                color: #111;
+                white-space: nowrap;
+            }
+        }
+
+        .cart-actions {
+            display: none !important;
+        }
+
+        /*--------------- CROSS-SELL / YOU MAY ALSO LIKE (desktop / base rules) ----------------*/
+        > .cart-crosssell {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            width: 100%;
+            margin-top: 60px;
+            box-sizing: border-box;
+
+            .cart-crosssell-header {
+                width: 100%;
+                margin: 0 0 30px;
+                padding: 0;
+            }
+
+            .cart-crosssell-title {
+                margin: 0;
+                padding: 0;
+                font-family: "ITC Garamond Std", Arial, sans-serif;
+                font-size: 24px;
+                line-height: 1.2;
+                font-weight: 600;
+                color: #111;
+            }
+
+            .cart-crosssell-content {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow-x:scroll;
+            }
+
+            .cart-crosssell-products {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                flex-wrap: nowrap;
+                gap: 2px;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .cart-crosssell-card {
+                width: 320px;
+                height: 442px;
+                margin: 0;
+                padding: 0;
+                background: #fff;
+                box-sizing: border-box;
+            }
+
+            .cart-crosssell-card-image {
+                width: 100%;
+                height: 320px;
+                margin: 0;
+                padding: 0;
+                background: #fff;
+                overflow: hidden;
+                box-sizing: border-box;
+                border:1px solid #d3d3d3;
+            }
+
+            .cart-crosssell-card-image-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .cart-crosssell-card-image img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
+                object-fit: contain;
+                margin: 0;
+                padding: 0;
+            }
+
+            .cart-crosssell-card-details {
+                width: 100%;
+                margin: 0;
+                padding: 14px 20px;
+                box-sizing: border-box;
+            }
+
+            .cart-crosssell-card-badge {
+                display: block;
+                margin: 0 0 8px;
+                padding: 0;
+                font-family: "Proxima Nova", Arial, sans-serif;
+                font-size: 11px;
+                line-height: 1.2;
+                font-weight: 400;
+                color: #c97800;
+            }
+
+            .cart-crosssell-card-name {
+                margin: 0 0 6px;
+                padding: 0;
+                font-family: "Proxima Nova", Arial, sans-serif;
+                font-size: 13px;
+                line-height: 1.45;
+                font-weight: 500;
+                color: #111;
+            }
+
+            .cart-crosssell-card-name a {
+                display: block;
+                margin: 0;
+                padding: 0;
+                color: #111;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .cart-crosssell-card-name a:hover {
+                color: #111;
+                text-decoration: none;
+            }
+
+            .cart-crosssell-card-category {
+                margin: 8px 0 0;
+                padding: 0;
+                font-family: "Proxima Nova", Arial, sans-serif;
+                font-size: 12px;
+                line-height: 1.3;
+                font-weight: 400;
+                color: #777;
+            }
+
+            .cart-crosssell-card-price {
+                margin: 8px 0 0;
+                padding: 0;
+                font-family: "Proxima Nova", Arial, sans-serif;
+                font-size: 13px;
+                line-height: 1.3;
+                font-weight: 500;
+                color: #222;
+            }
+
+            .cart-crosssell-card-price .price-box {
+                margin: 0;
+                padding: 0;
+            }
+
+            .cart-crosssell-card-price .price {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        /* ----------- TABLET (768px - 991px)-----------------*/
+        @media (max-width: 991px) {
+            grid-template-columns: minmax(0, 1fr) 360px;
+            column-gap: 24px;
+            padding: 0;
+            > .cart-summary {
+                .block > .title{
+                    padding: 10px 0;
+                }
+            }
+
+
+
+            #shopping-cart-table {
+                .product-item-photo {
+                    flex-basis: 130px;
+                    width: 130px;
+                    height: 130px;
+                }
+
+                .product-item-details {
+                    min-height: 130px;
+                }
+            }
+
+            > .cart-crosssell {
+                .cart-crosssell-products {
+                    gap: 16px;
+                }
+            }
+        }
+
+        /* ------------------------MOBILE (up to 767px)--------------------------*/
+        @media (max-width: 767px) {
+            display: block;
+            width: 100%;
+
+            > .form.cart {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            > .cart-summary {
+                width: 100%;
+                margin-top: 30px;
+            }
+            .cart-page-header{
+                margin: 0;
+                padding: 15px;
+            }
+
+            > .cart-crosssell {
+                width: 100%;
+                margin-top: 10px;
+                .cart-crosssell-header{
+                    margin-bottom: 10px;
+                }
+                .cart-crosssell-title{
+                    padding: 0 15px;
+                }
+
+                .cart-crosssell-products {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 16px;
+                    padding: 0 15px;
+                }
+
+                .cart-crosssell-card {
+                    width: 100%;
+                    height: 270px;
+                }
+
+                .cart-crosssell-card-image {
+                    height: 180px;
+                    .product-image-container-20{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+
+                .cart-crosssell-card-name {
+                    font-size: 13px;
+                }
+
+                .cart-crosssell-card-category {
+                    font-size: 11px;
+                }
+
+                .cart-crosssell-card-price {
+                    font-size: 12px;
+                }
+            }
+
+            #shopping-cart-table {
+                .col.item {
+                    gap: 12px;
+                    padding: 15px 15px 10px 90px;
+                }
+
+                .product-item-photo {
+                    flex-basis: 100px;
+                    width: 100px;
+                    height: 100px;
+                }
+
+                .product-item-details {
+                    min-height: 100px;
+                }
+
+                .product-item-name {
+                    font-size: 15px;
+                }
+
+                .product-item-footer {
+                    flex-wrap: wrap;
+                    row-gap: 10px;
+                }
+
+                .col.subtotal {
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+}

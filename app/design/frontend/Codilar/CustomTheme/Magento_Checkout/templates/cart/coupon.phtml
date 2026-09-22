@@ -1,0 +1,103 @@
+<?php
+/**
+ * Cart coupon.
+ *
+ * @var \Magento\Checkout\Block\Cart\Coupon $block
+ */
+?>
+
+<div class="block discount cart-coupon"
+     id="block-discount">
+
+    <div class="title">
+
+        <strong id="block-discount-heading"
+                role="heading"
+                aria-level="2">
+
+            <?= $block->escapeHtml(__('Redeem Promo Code')) ?>
+
+        </strong>
+
+    </div>
+
+
+    <div class="content"
+         aria-labelledby="block-discount-heading">
+
+        <form id="discount-coupon-form"
+              action="<?= $block->escapeUrl(
+                  $block->getUrl('checkout/cart/couponPost')
+              ) ?>"
+              method="post"
+              data-mage-init='{
+                  "discountCode": {
+                      "couponFormSelector": "#discount-coupon-form",
+                      "removeCouponSelector": "#remove-coupon",
+                      "applyButton": "button.action.apply",
+                      "cancelButton": "button.action.cancel"
+                  }
+              }'>
+
+            <?= $block->getBlockHtml('formkey') ?>
+
+            <input type="hidden"
+                   name="remove"
+                   id="remove-coupon"
+                   value="0" />
+
+
+            <div class="fieldset coupon">
+
+                <div class="field">
+
+                    <div class="control coupon-control">
+
+                        <input type="text"
+                               class="input-text"
+                               id="coupon_code"
+                               name="coupon_code"
+                               value="<?= $block->escapeHtmlAttr(
+                                   $block->getCouponCode()
+                               ) ?>"
+                               placeholder="<?= $block->escapeHtmlAttr(
+                                   __('Input Promo Code')
+                               ) ?>"
+                               autocomplete="off" />
+
+
+                        <?php if (!$block->getCouponCode()): ?>
+
+                            <button class="action apply primary"
+                                    type="button">
+
+                                <span>
+                                    <?= $block->escapeHtml(__('Apply')) ?>
+                                </span>
+
+                            </button>
+
+                        <?php else: ?>
+
+                            <button class="action cancel primary"
+                                    type="button">
+
+                                <span>
+                                    <?= $block->escapeHtml(__('Cancel')) ?>
+                                </span>
+
+                            </button>
+
+                        <?php endif; ?>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,55 @@
+<?php
+/**
+ * Custom header account dropdown.
+ *
+ * @var \Magento\Customer\Block\Account\Navigation $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+
+<div class="header-account"
+     data-mage-init='{"js/header-account":{}}'>
+
+    <button
+        type="button"
+        class="header-account-trigger"
+        aria-label="<?= $escaper->escapeHtmlAttr(__('Account')) ?>"
+        aria-expanded="false"
+    >
+        <span class="header-account-icon" aria-hidden="true">
+            <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <circle
+                    cx="12"
+                    cy="8"
+                    r="3.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                />
+
+                <path
+                    d="M5 20C5.8 16.6 8.2 14.5 12 14.5C15.8 14.5 18.2 16.6 19 20"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                />
+            </svg>
+        </span>
+    </button>
+
+    <div class="header-account-dropdown">
+        <ul class="header-account-links">
+            <?php foreach ($block->getLinks() as $link): ?>
+                <li>
+                    <?= $block->renderLink($link) ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
+</div>

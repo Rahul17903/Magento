@@ -1,0 +1,75 @@
+<?php
+/**
+ * Cart cross-sell products.
+ *
+ * @var \Magento\Checkout\Block\Cart\Crosssell $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+$items = $block->getItems();
+?>
+
+<?php if (count($items)): ?>
+    <section class="cart-crosssell">
+
+        <div class="cart-crosssell-header">
+            <h2 class="cart-crosssell-title">
+                <?= $escaper->escapeHtml(__('You may also like')) ?>
+            </h2>
+        </div>
+
+        <div class="cart-crosssell-content">
+
+            <div class="cart-crosssell-products">
+
+                <?php foreach ($items as $_item): ?>
+
+                    <?php
+                    $image = $block->getImage(
+                        $_item,
+                        'cart_cross_sell_products'
+                    );
+
+                    $productUrl = $block->getProductUrl($_item);
+                    ?>
+
+                    <article class="cart-crosssell-card">
+
+                        <div class="cart-crosssell-card-image">
+                            <a href="<?= $escaper->escapeUrl($productUrl) ?>"
+                               class="cart-crosssell-card-image-link">
+                                <?= $image->toHtml() ?>
+                            </a>
+                        </div>
+
+                        <div class="cart-crosssell-card-details">
+
+                            <?php if ($_item->getNewsFromDate()): ?>
+                                <span class="cart-crosssell-card-badge">
+                                    <?= $escaper->escapeHtml(__('New')) ?>
+                                </span>
+                            <?php endif; ?>
+
+                            <h3 class="cart-crosssell-card-name">
+                                <a href="<?= $escaper->escapeUrl($productUrl) ?>">
+                                    <?= $escaper->escapeHtml($_item->getName()) ?>
+                                </a>
+                            </h3>
+
+
+                            <div class="cart-crosssell-card-price">
+                                <?= /* @noEscape */ $block->getProductPrice($_item) ?>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                <?php endforeach; ?>
+
+            </div>
+
+        </div>
+
+    </section>
+<?php endif; ?>

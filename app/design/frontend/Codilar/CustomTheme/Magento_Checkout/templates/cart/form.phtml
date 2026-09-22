@@ -1,0 +1,66 @@
+<?php
+/**
+ * Cart form.
+ *
+ * @var \Magento\Checkout\Block\Cart\Grid $block
+ */
+
+$taxHelper = \Magento\Framework\App\ObjectManager::getInstance()
+    ->get(\Magento\Tax\Helper\Data::class);
+
+$mergedCells = $taxHelper->displayCartPriceInclTax() ? 2 : 1;
+?>
+
+<?= $block->getChildHtml('form_before') ?>
+
+<form action="<?= $block->escapeUrl($block->getUrl('checkout/cart/updatePost')) ?>"
+      method="post"
+      id="form-validate"
+      data-mage-init='{"validation":{}}'
+      class="form cart">
+
+    <?= $block->getBlockHtml('formkey') ?>
+
+    <div class="cart-page-header">
+        <h1 class="cart-title">
+            <?= $block->escapeHtml(__('My Bag')) ?>
+        </h1>
+
+        <span class="item-count">
+            <?= (int) $block->getItemsCount() ?>
+            <?= $block->getItemsCount() == 1 ? 'Item' : 'Items' ?>
+        </span>
+    </div>
+        <div class="cart table-wrapper<?= $mergedCells === 2 ? ' detailed' : '' ?>">
+
+            <?php if ($block->getPagerHtml()): ?>
+                <div class="cart-products-toolbar cart-products-toolbar-top">
+                    <?= $block->getPagerHtml() ?>
+                </div>
+            <?php endif; ?>
+
+            <table id="shopping-cart-table" class="cart items data table">
+
+                <caption class="table-caption">
+                    <?= $block->escapeHtml(__('Shopping Cart Items')) ?>
+                </caption>
+
+                <?php foreach ($block->getItems() as $_item): ?>
+                    <?= $block->getItemHtml($_item) ?>
+                <?php endforeach ?>
+
+            </table>
+
+            <?php if ($block->getPagerHtml()): ?>
+                <div class="cart-products-toolbar cart-products-toolbar-bottom">
+                    <?= $block->getPagerHtml() ?>
+                </div>
+            <?php endif; ?>
+
+        </div>
+
+    </form>
+
+<?= $block->getChildHtml('checkout.cart.order.actions') ?>
+
+<?= $block->getChildHtml('minicart.event') ?>

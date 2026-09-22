@@ -1,0 +1,115 @@
+<?php
+/** @var \Magento\Checkout\Block\Cart\Item\Renderer $block */
+
+$_item = $block->getItem();
+$product = $_item->getProduct();
+?>
+
+<tbody class="cart item card-item-row">
+<tr>
+
+    <!-- Single cell: image + all product details flow together, no separate grid/absolute columns -->
+    <td class="col item">
+
+        <?php if ($block->hasProductUrl()): ?>
+
+            <a href="<?= $block->escapeUrl($block->getProductUrl()) ?>"
+               title="<?= $block->escapeHtmlAttr($block->getProductName()) ?>"
+               class="product-item-photo">
+
+                <?= $block->getImage(
+                    $block->getProductForThumbnail(),
+                    'cart_page_product_thumbnail'
+                )->toHtml() ?>
+
+            </a>
+
+        <?php else: ?>
+
+            <span class="product-item-photo">
+
+                <?= $block->getImage(
+                    $block->getProductForThumbnail(),
+                    'cart_page_product_thumbnail'
+                )->toHtml() ?>
+
+            </span>
+
+        <?php endif; ?>
+
+
+        <div class="product-item-details">
+
+            <!-- Name + Edit/Remove actions on one row, space-between -->
+            <div class="product-item-header">
+
+                <strong class="product-item-name">
+
+                    <?php if ($block->hasProductUrl()): ?>
+
+                        <a href="<?= $block->escapeUrl($block->getProductUrl()) ?>">
+                            <?= $block->escapeHtml($block->getProductName()) ?>
+                        </a>
+
+                    <?php else: ?>
+
+                        <?= $block->escapeHtml($block->getProductName()) ?>
+
+                    <?php endif; ?>
+
+                </strong>
+
+                <div class="item-actions-wrapper">
+                    <?= /* @noEscape */ $block->getActions($_item) ?>
+                </div>
+
+            </div>
+
+
+            <!-- Additional product information (SKU / options) -->
+            <?php $addInfoBlock = $block->getProductAdditionalInformationBlock(); ?>
+
+            <?php if ($addInfoBlock): ?>
+                <?= $addInfoBlock->setItem($_item)->toHtml() ?>
+            <?php endif; ?>
+
+
+            <!-- Quantity + Subtotal on one row, space-between, pinned to bottom of the details column -->
+            <div class="product-item-footer">
+
+                <div class="field qty">
+
+                    <button type="button"
+                            class="qty-minus"
+                            aria-label="<?= $block->escapeHtmlAttr(__('Decrease quantity')) ?>">
+                        −
+                    </button>
+
+                    <input id="cart-<?= (int) $_item->getId() ?>-qty"
+                           name="cart[<?= (int) $_item->getId() ?>][qty]"
+                           value="<?= (float) $block->getQty() ?>"
+                           type="number"
+                           min="1"
+                           title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                           class="input-text qty" />
+
+                    <button type="button"
+                            class="qty-plus"
+                            aria-label="<?= $block->escapeHtmlAttr(__('Increase quantity')) ?>">
+                        +
+                    </button>
+
+                </div>
+
+                <div class="col subtotal">
+                    <?= /* @noEscape */ $block->getRowTotalHtml($_item) ?>
+                </div>
+
+            </div>
+
+        </div>
+
+    </td>
+
+</tr>
+</tbody>
