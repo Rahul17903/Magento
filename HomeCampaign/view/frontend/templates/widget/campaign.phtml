@@ -1,0 +1,217 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @var \Codilar\HomeCampaign\Block\Widget\Campaign $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+$products = $block->getProducts();
+?>
+
+<?php if ($products->getSize()): ?>
+
+    <section class="home-campaign-section">
+
+        <div class="home-campaign-container">
+
+            <!-- Campaign Banner -->
+            <div class="home-campaign-banner">
+
+                <?php if ($block->getCampaignImage()): ?>
+
+                    <img
+                        src="<?= $escaper->escapeUrl($block->getCampaignImage()) ?>"
+                        alt="<?= $escaper->escapeHtmlAttr($block->getCampaignTitle()) ?>"
+                    >
+
+                <?php endif; ?>
+
+                <div class="home-campaign-banner-content">
+
+                    <h2>
+                        <?= /* @noEscape */ nl2br(
+                            $escaper->escapeHtml($block->getCampaignTitle())
+                        ) ?>
+                    </h2>
+
+                    <a
+                        href="<?= $escaper->escapeUrl($block->getButtonUrl()) ?>"
+                        class="home-campaign-button"
+                    >
+                    <span>
+                        <?= $escaper->escapeHtml($block->getButtonText()) ?>
+                    </span>
+
+                        <span class="home-campaign-button-arrow">
+                        →
+                    </span>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Products -->
+            <div class="home-campaign-products">
+
+                <div class="home-campaign-slider">
+
+                    <div class="home-campaign-track">
+
+                        <?php foreach ($products as $product): ?>
+
+                            <div class="home-campaign-slide">
+
+                                <div class="home-campaign-product-card">
+
+                                    <div class="home-campaign-product-image">
+
+                                        <a
+                                            href="<?= $escaper->escapeUrl(
+                                                $block->getProductUrl($product)
+                                            ) ?>"
+                                            class="home-campaign-product-link"
+                                        >
+
+                                            <img
+                                                src="<?= $escaper->escapeUrl(
+                                                    $block->getProductImageUrl($product)
+                                                ) ?>"
+                                                alt="<?= $escaper->escapeHtmlAttr(
+                                                    $product->getName()
+                                                ) ?>"
+                                                loading="lazy"
+                                            >
+
+                                        </a>
+
+                                        <a
+                                            href="<?= $escaper->escapeUrl(
+                                                $block->getWishlistUrl($product)
+                                            ) ?>"
+                                            class="home-campaign-wishlist"
+                                            aria-label="<?= $escaper->escapeHtmlAttr(
+                                                __('Add to Wishlist')
+                                            ) ?>"
+                                        >
+                                            <span>♡</span>
+                                        </a>
+
+                                    </div>
+
+                                    <div class="home-campaign-product-info">
+
+                                        <a
+                                            href="<?= $escaper->escapeUrl(
+                                                $block->getProductUrl($product)
+                                            ) ?>"
+                                            class="home-campaign-product-name"
+                                        >
+                                            <?= $escaper->escapeHtml(
+                                                $product->getName()
+                                            ) ?>
+                                        </a>
+
+                                        <div class="home-campaign-product-price">
+
+                                            <?= /* @noEscape */ $block->getLayout()
+                                                ->getBlock('product.price.render.default')
+                                                ?->render(
+                                                    \Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE,
+                                                    $product,
+                                                    [
+                                                        'include_container' => true,
+                                                        'display_minimal_price' => true,
+                                                        'zone' => \Magento\Framework\Pricing\Render::ZONE_ITEM_LIST
+                                                    ]
+                                                ) ?>
+
+                                        </div>
+
+                                        <?php if ($block->isSaleable($product)): ?>
+
+                                            <form
+                                                method="post"
+                                                action="<?= $escaper->escapeUrl(
+                                                    $block->getAddToCartUrl($product)
+                                                ) ?>"
+                                                class="home-campaign-cart-form"
+                                            >
+
+                                                <?= $block->getBlockHtml('formkey') ?>
+
+                                                <button
+                                                    type="submit"
+                                                    class="home-campaign-cart-button"
+                                                >
+                                                    <?= $escaper->escapeHtml(
+                                                        __('Add to Cart')
+                                                    ) ?>
+                                                </button>
+
+                                            </form>
+
+                                        <?php else: ?>
+
+                                            <a
+                                                href="<?= $escaper->escapeUrl(
+                                                    $block->getProductUrl($product)
+                                                ) ?>"
+                                                class="home-campaign-view-button"
+                                            >
+                                                <?= $escaper->escapeHtml(
+                                                    __('View Product')
+                                                ) ?>
+                                            </a>
+
+                                        <?php endif; ?>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        <?php endforeach; ?>
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="home-campaign-prev"
+                    aria-label="<?= $escaper->escapeHtmlAttr(
+                        __('Previous')
+                    ) ?>"
+                >
+                    ‹
+                </button>
+
+                <button
+                    type="button"
+                    class="home-campaign-next"
+                    aria-label="<?= $escaper->escapeHtmlAttr(
+                        __('Next')
+                    ) ?>"
+                >
+                    ›
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script type="text/x-magento-init">
+        {
+            ".home-campaign-section": {
+                "Codilar_HomeCampaign/js/campaign-swiper": {}
+            }
+        }
+    </script>
+
+<?php endif; ?>

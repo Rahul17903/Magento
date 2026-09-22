@@ -1,0 +1,110 @@
+<?php
+/**
+ * Cart progress bar template.
+ *
+ * @var \Codilar\CartProgress\Block\Cart\Progress $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+$milestones = $block->getMilestones();
+$nextMilestone = $block->getNextMilestone();
+$allUnlocked = $block->getAllMilestonesUnlocked();
+?>
+
+<?php if (!empty($milestones)): ?>
+
+    <div class="cart-progress-bar">
+
+        <!-- Heading -->
+        <?php if (!$allUnlocked && $nextMilestone): ?>
+
+            <p class="progress-heading">
+                <?= $escaper->escapeHtml(
+                    __(
+                        'Shop %1 more, Unlock %2',
+                        $block->formatMilestoneAmount(
+                            $block->getAmountRemaining()
+                        ),
+                        $nextMilestone['label']
+                    )
+                ) ?>
+            </p>
+
+        <?php else: ?>
+
+            <p class="progress-heading">
+                <?= $escaper->escapeHtml(
+                    __('All rewards unlocked!')
+                ) ?>
+            </p>
+
+        <?php endif; ?>
+
+
+        <!-- Progress bar -->
+        <div class="progress-track">
+
+            <?php foreach ($milestones as $milestone): ?>
+
+                <div class="progress-milestone <?= $milestone['is_completed'] ? 'completed' : 'upcoming' ?>">
+
+                    <!-- Progress line -->
+                    <span
+                        class="progress-line"
+                        style="--fill: <?= (float) $milestone['segment_fill'] ?>%"
+                    ></span>
+
+
+                    <!-- Circle -->
+                    <span class="progress-circle">
+
+                        <?php if (
+                            $milestone['type'] === 'delivery'
+                            && $milestone['is_completed']
+                        ): ?>
+
+                            <span class="progress-icon check">
+                                &#10003;
+                            </span>
+
+                        <?php else: ?>
+
+                            <span class="progress-icon percent">
+                                %
+                            </span>
+
+                        <?php endif; ?>
+
+                    </span>
+
+                </div>
+
+            <?php endforeach; ?>
+
+        </div>
+
+
+        <!-- Labels -->
+        <div class="progress-labels">
+
+            <?php foreach ($milestones as $milestone): ?>
+
+                <div class="progress-label <?= $milestone['is_completed'] ? 'completed' : '' ?>">
+
+                    <span class="progress-label-title">
+                        <?= $escaper->escapeHtml($milestone['label']) ?>
+                    </span>
+
+                    <span class="progress-label-sub">
+                        <?= $escaper->escapeHtml($milestone['sub_label']) ?>
+                    </span>
+
+                </div>
+
+            <?php endforeach; ?>
+
+        </div>
+
+    </div>
+
+<?php endif; ?>

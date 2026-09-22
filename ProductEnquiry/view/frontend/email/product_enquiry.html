@@ -1,0 +1,396 @@
+<!--@subject Product Enquiry Received - {{var sku}} @-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Enquiry</title>
+</head>
+
+<body style="
+    margin:0;
+    padding:0;
+    background-color:#f5f6f8;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#222222;
+">
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background-color:#f5f6f8; padding:40px 15px;">
+
+    <tr>
+        <td align="center">
+
+            <!-- Main Container -->
+            <table width="600" cellpadding="0" cellspacing="0" border="0"
+                   style="
+                       max-width:600px;
+                       width:100%;
+                       background:#ffffff;
+                       border-radius:12px;
+                       overflow:hidden;
+                       box-shadow:0 4px 20px rgba(0,0,0,0.08);
+                   ">
+
+                <!-- Header -->
+                <tr>
+                    <td style="
+                        background:#111111;
+                        padding:28px 35px;
+                    ">
+
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+
+                                <td>
+                                    <div style="
+                                        font-size:22px;
+                                        font-weight:bold;
+                                        color:#ffffff;
+                                        letter-spacing:0.5px;
+                                    ">
+                                        CODILAR
+                                    </div>
+
+                                    <div style="
+                                        margin-top:5px;
+                                        font-size:12px;
+                                        color:#bdbdbd;
+                                        letter-spacing:1px;
+                                    ">
+                                        PRODUCT ENQUIRY
+                                    </div>
+                                </td>
+
+                                <td align="right">
+                                    <div style="
+                                        display:inline-block;
+                                        padding:7px 12px;
+                                        background:#ffffff;
+                                        color:#111111;
+                                        border-radius:20px;
+                                        font-size:11px;
+                                        font-weight:bold;
+                                    ">
+                                        ENQUIRY
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+
+
+                <!-- Main Content -->
+                <tr>
+                    <td style="padding:38px 35px 30px 35px;">
+
+                        <!-- Greeting -->
+                        <div style="
+                            font-size:24px;
+                            line-height:32px;
+                            font-weight:bold;
+                            color:#171717;
+                            margin-bottom:10px;
+                        ">
+                            Hello {{var name}},
+                        </div>
+
+                        <div style="
+                            font-size:15px;
+                            line-height:24px;
+                            color:#666666;
+                            margin-bottom:28px;
+                        ">
+                            Thank you for your interest in our product.
+                            Your enquiry has been received successfully.
+                        </div>
+
+
+                        <!-- Success Message -->
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                               style="
+                                   background:#f7f7f7;
+                                   border-left:4px solid #111111;
+                                   margin-bottom:28px;
+                               ">
+
+                            <tr>
+                                <td style="padding:16px 18px;">
+
+                                    <div style="
+                                        font-size:13px;
+                                        font-weight:bold;
+                                        color:#222222;
+                                        margin-bottom:5px;
+                                    ">
+                                        Enquiry Submitted Successfully
+                                    </div>
+
+                                    <div style="
+                                        font-size:12px;
+                                        line-height:20px;
+                                        color:#777777;
+                                    ">
+                                        Our team has received your request and
+                                        will get back to you shortly.
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                        </table>
+
+
+                        <!-- Product Information -->
+                        <div style="
+                            font-size:17px;
+                            font-weight:bold;
+                            color:#222222;
+                            margin-bottom:14px;
+                        ">
+                            Product Details
+                        </div>
+
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                               style="
+                                   border:1px solid #e5e5e5;
+                                   border-radius:8px;
+                                   overflow:hidden;
+                                   margin-bottom:30px;
+                               ">
+
+                            <!-- SKU -->
+                            <tr>
+                                <td width="42%" style="
+                                    padding:15px 16px;
+                                    background:#fafafa;
+                                    border-bottom:1px solid #eeeeee;
+                                    font-size:13px;
+                                    font-weight:bold;
+                                    color:#555555;
+                                ">
+                                    Product SKU
+                                </td>
+
+                                <td style="
+                                    padding:15px 16px;
+                                    border-bottom:1px solid #eeeeee;
+                                    font-size:13px;
+                                    color:#222222;
+                                    font-weight:bold;
+                                ">
+                                    {{var sku}}
+                                </td>
+                            </tr>
+
+
+                            <!-- Quantity -->
+                            <tr>
+                                <td width="42%" style="
+                                    padding:15px 16px;
+                                    background:#fafafa;
+                                    border-bottom:1px solid #eeeeee;
+                                    font-size:13px;
+                                    font-weight:bold;
+                                    color:#555555;
+                                ">
+                                    Quantity
+                                </td>
+
+                                <td style="
+                                    padding:15px 16px;
+                                    border-bottom:1px solid #eeeeee;
+                                    font-size:13px;
+                                    color:#222222;
+                                ">
+                                    {{var qty}}
+                                </td>
+                            </tr>
+
+
+                            <!-- Customer Name -->
+                            <tr>
+                                <td width="42%" style="
+                                    padding:15px 16px;
+                                    background:#fafafa;
+                                    border-bottom:1px solid #eeeeee;
+                                    font-size:13px;
+                                    font-weight:bold;
+                                    color:#555555;
+                                ">
+                                    Customer Name
+                                </td>
+
+                                <td style="
+                                    padding:15px 16px;
+                                    border-bottom:1px solid #eeeeee;
+                                    font-size:13px;
+                                    color:#222222;
+                                ">
+                                    {{var name}}
+                                </td>
+                            </tr>
+
+
+                            <!-- Email -->
+                            <tr>
+                                <td width="42%" style="
+                                    padding:15px 16px;
+                                    background:#fafafa;
+                                    border-bottom:1px solid #eeeeee;
+                                    font-size:13px;
+                                    font-weight:bold;
+                                    color:#555555;
+                                ">
+                                    Email Address
+                                </td>
+
+                                <td style="
+                                    padding:15px 16px;
+                                    border-bottom:1px solid #eeeeee;
+                                    font-size:13px;
+                                    color:#222222;
+                                ">
+                                    <a href="mailto:{{var email}}"
+                                       style="
+                                           color:#111111;
+                                           text-decoration:none;
+                                           font-weight:bold;
+                                       ">
+                                        {{var email}}
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <!-- Address -->
+                            <tr>
+                                <td width="42%" style="
+                                    padding:15px 16px;
+                                    background:#fafafa;
+                                    font-size:13px;
+                                    font-weight:bold;
+                                    color:#555555;
+                                ">
+                                    Address
+                                </td>
+
+                                <td style="
+                                    padding:15px 16px;
+                                    font-size:13px;
+                                    line-height:20px;
+                                    color:#222222;
+                                ">
+                                    {{var address}}
+                                </td>
+                            </tr>
+
+                        </table>
+
+
+                        <!-- Next Step -->
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                               style="
+                                   background:#111111;
+                                   border-radius:8px;
+                                   margin-bottom:30px;
+                               ">
+
+                            <tr>
+                                <td style="padding:20px 22px;">
+
+                                    <div style="
+                                        color:#ffffff;
+                                        font-size:14px;
+                                        font-weight:bold;
+                                        margin-bottom:7px;
+                                    ">
+                                        What happens next?
+                                    </div>
+
+                                    <div style="
+                                        color:#cccccc;
+                                        font-size:12px;
+                                        line-height:20px;
+                                    ">
+                                        Our team will review your enquiry and
+                                        contact you using the email address
+                                        provided above.
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                        </table>
+
+
+                        <!-- Closing -->
+                        <div style="
+                            font-size:13px;
+                            line-height:22px;
+                            color:#666666;
+                        ">
+                            If you have any additional questions, simply reply
+                            to this email and our team will be happy to help.
+                        </div>
+
+                        <div style="
+                            margin-top:22px;
+                            font-size:13px;
+                            color:#222222;
+                            font-weight:bold;
+                        ">
+                            Thank you,<br>
+                            Codilar Team
+                        </div>
+
+                    </td>
+                </tr>
+
+
+                <!-- Footer -->
+                <tr>
+                    <td style="
+                        background:#f8f8f8;
+                        border-top:1px solid #eeeeee;
+                        padding:22px 35px;
+                    ">
+
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+
+                                <td style="
+                                    font-size:11px;
+                                    color:#999999;
+                                    line-height:18px;
+                                ">
+                                    © {{var current_year}} Codilar.
+                                    All rights reserved.
+                                </td>
+
+                                <td align="right" style="
+                                    font-size:11px;
+                                    color:#999999;
+                                ">
+                                    Product Enquiry
+                                </td>
+
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+
+            </table>
+
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>

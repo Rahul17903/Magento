@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+
+    <widget id="codilar_home_campaign"
+            class="Codilar\HomeCampaign\Block\Widget\Campaign">
+
+        <label>Codilar Home Campaign</label>
+        <description>Display campaign banner with category products in a slider</description>
+
+        <parameters>
+
+            <parameter name="campaign_title"
+                       xsi:type="text"
+                       visible="true"
+                       sort_order="10">
+                <label>Campaign Title</label>
+            </parameter>
+
+            <parameter name="campaign_image"
+                       xsi:type="text"
+                       visible="true"
+                       sort_order="20">
+                <label>Campaign Image URL</label>
+                <description>Example: /media/wysiwyg/home/campaign-1.jpg</description>
+            </parameter>
+
+            <parameter name="category_id"
+                       xsi:type="text"
+                       visible="true"
+                       sort_order="30">
+                <label>Category ID</label>
+                <description>Enter the category ID. Example: 12</description>
+            </parameter>
+
+            <parameter name="product_limit"
+                       xsi:type="text"
+                       visible="true"
+                       sort_order="40">
+                <label>Number of Products</label>
+                <value>8</value>
+            </parameter>
+
+            <parameter name="button_text"
+                       xsi:type="text"
+                       visible="true"
+                       sort_order="50">
+                <label>Button Text</label>
+                <value>Browse All Products</value>
+            </parameter>
+
+            <parameter name="button_url"
+                       xsi:type="text"
+                       visible="true"
+                       sort_order="60">
+                <label>Button URL</label>
+                <description>Example: gear/watches.html</description>
+            </parameter>
+
+        </parameters>
+
+    </widget>
+
+</widgets>

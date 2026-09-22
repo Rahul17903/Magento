@@ -1,0 +1,199 @@
+<?php
+
+declare(strict_types=1);
+
+/** @var \Codilar\ProductEnquiry\Block\EnquiryCollection $block */
+
+$enquiries = $block->getEnquiries();
+$enquiryCount = $enquiries->getSize();
+?>
+
+<div class="product-enquiry-page">
+
+    <div class="product-enquiry-header">
+
+        <div class="product-enquiry-heading">
+            <span class="product-enquiry-eyebrow">
+                <?= $block->escapeHtml(__('Customer Requests')) ?>
+            </span>
+
+            <h1>
+                <?= $block->escapeHtml(__('Product Enquiries')) ?>
+            </h1>
+
+            <p>
+                <?= $block->escapeHtml(
+                    __('View and manage all product enquiry requests submitted by customers.')
+                ) ?>
+            </p>
+        </div>
+
+        <div class="product-enquiry-summary">
+            <span class="product-enquiry-summary-label">
+                <?= $block->escapeHtml(__('Total Enquiries')) ?>
+            </span>
+
+            <strong>
+                <?= $block->escapeHtml((string) $enquiryCount) ?>
+            </strong>
+        </div>
+
+    </div>
+
+    <?php if ($enquiryCount): ?>
+
+        <div class="product-enquiry-card">
+
+            <div class="product-enquiry-card-header">
+
+                <div>
+                    <h2>
+                        <?= $block->escapeHtml(__('Enquiry Requests')) ?>
+                    </h2>
+
+                    <span>
+                        <?= $block->escapeHtml(
+                            __('Customer product enquiry submissions')
+                        ) ?>
+                    </span>
+                </div>
+
+                <span class="product-enquiry-count">
+                    <?= $block->escapeHtml((string) $enquiryCount) ?>
+                    <?= $block->escapeHtml(__(' Requests')) ?>
+                </span>
+
+            </div>
+
+            <div class="product-enquiry-table-wrapper">
+
+                <table class="product-enquiry-table">
+
+                    <thead>
+                    <tr>
+                        <th><?= $block->escapeHtml(__('ID')) ?></th>
+                        <th><?= $block->escapeHtml(__('Customer')) ?></th>
+                        <th><?= $block->escapeHtml(__('Email')) ?></th>
+                        <th><?= $block->escapeHtml(__('Address')) ?></th>
+                        <th><?= $block->escapeHtml(__('SKU')) ?></th>
+                        <th><?= $block->escapeHtml(__('Qty')) ?></th>
+                        <th><?= $block->escapeHtml(__('Submitted')) ?></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <?php foreach ($enquiries as $enquiry): ?>
+
+                        <tr>
+
+                            <td>
+                                <span class="product-enquiry-id">
+                                    #<?= $block->escapeHtml(
+                                        (string) $enquiry->getId()
+                                    ) ?>
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="product-enquiry-customer">
+                                    <span class="product-enquiry-avatar">
+                                        <?= $block->escapeHtml(
+                                            strtoupper(
+                                                substr(
+                                                    (string) $enquiry->getName(),
+                                                    0,
+                                                    1
+                                                )
+                                            )
+                                        ) ?>
+                                    </span>
+
+                                    <span class="product-enquiry-name">
+                                        <?= $block->escapeHtml(
+                                            $enquiry->getName()
+                                        ) ?>
+                                    </span>
+                                </div>
+                            </td>
+
+                            <td>
+                                <a
+                                    class="product-enquiry-email"
+                                    href="mailto:<?= $block->escapeHtmlAttr(
+                                        $enquiry->getEmail()
+                                    ) ?>"
+                                >
+                                    <?= $block->escapeHtml(
+                                        $enquiry->getEmail()
+                                    ) ?>
+                                </a>
+                            </td>
+
+                            <td>
+                                <span class="product-enquiry-address">
+                                    <?= $block->escapeHtml(
+                                        $enquiry->getAddress()
+                                    ) ?>
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="product-enquiry-sku">
+                                    <?= $block->escapeHtml(
+                                        $enquiry->getSku()
+                                    ) ?>
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="product-enquiry-qty">
+                                    <?= $block->escapeHtml(
+                                        (string) $enquiry->getQty()
+                                    ) ?>
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="product-enquiry-date">
+                                    <?= $block->escapeHtml(
+                                        $enquiry->getCreatedAt()
+                                    ) ?>
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    <?php endforeach; ?>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    <?php else: ?>
+
+        <div class="product-enquiry-empty">
+
+            <div class="product-enquiry-empty-icon">
+                <span>?</span>
+            </div>
+
+            <h2>
+                <?= $block->escapeHtml(__('No Enquiries Yet')) ?>
+            </h2>
+
+            <p>
+                <?= $block->escapeHtml(
+                    __('There are currently no product enquiry requests.')
+                ) ?>
+            </p>
+
+        </div>
+
+    <?php endif; ?>
+
+</div>

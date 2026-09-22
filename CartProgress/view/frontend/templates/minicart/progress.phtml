@@ -1,0 +1,32 @@
+<?php
+/**
+ * Minicart cart progress component.
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+
+<div
+    id="codilar-minicart-progress"
+    class="minicart-progress-wrapper"
+    data-bind="scope: 'codilarMinicartProgress'"
+>
+
+    <!-- ko template: getTemplate() --><!-- /ko -->
+
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "codilarMinicartProgress": {
+                        "component": "Codilar_CartProgress/js/view/minicart-progress"
+                    }
+                }
+            }
+        }
+    }
+</script>

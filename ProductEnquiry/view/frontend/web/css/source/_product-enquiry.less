@@ -238,29 +238,37 @@
     }
 
     // ---------------------------------------------------------
-    // Existing Magento Add To Cart Button
-    // JS converts this button into Product Enquiry
+    // Add To Cart + Product Enquiry Buttons
+    // Gradient Button
     // ---------------------------------------------------------
 
-    #product-addtocart-button {
+    #product-addtocart-button,
+    #product-enquiry-button {
         min-height: 48px;
-        padding: 12px 30px;
-        border: 0;
-        border-radius: 7px;
-        background: #111827;
+        margin: 10px;
+        padding: 15px 45px;
+        border: none;
+        border-radius: 10px;
+        background-image: linear-gradient(
+            to right,
+            #2b5876 0%,
+            #4e4376 51%,
+            #2b5876 100%
+        );
+        background-size: 200% auto;
         color: #ffffff;
         font-size: 15px;
         font-weight: 600;
-        box-shadow: 0 4px 12px rgba(17, 24, 39, .18);
+        text-align: center;
+        box-shadow: 0 0 20px #eee;
         cursor: pointer;
-        transition:
-            background-color .2s ease,
-            box-shadow .2s ease,
-            transform .1s ease;
+        outline: none;
+        transition: 0.5s;
 
         &:hover {
-            background: #000000;
-            box-shadow: 0 7px 18px rgba(17, 24, 39, .22);
+            background-position: right center;
+            color: #ffffff;
+            text-decoration: none;
         }
 
         &:active {
@@ -269,8 +277,11 @@
 
         &:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(17, 24, 39, .15);
+            box-shadow: 0 0 20px #eee;
         }
+    }
+
+    #product-addtocart-button {
 
         &:disabled {
             opacity: .6;
@@ -374,6 +385,7 @@
             }
 
             &:hover {
+
                 .product-image-photo {
                     transform: scale(1.04);
                 }
@@ -425,6 +437,7 @@
             }
 
             .special-price {
+
                 .price {
                     color: #b42318;
                 }
@@ -435,6 +448,7 @@
             margin-top: auto;
 
             .actions-primary {
+
                 .action {
                     min-height: 38px;
                     padding: 9px 15px;
@@ -481,7 +495,9 @@
                 }
 
                 &.required {
+
                     .label {
+
                         &::after {
                             content: '*';
                             display: inline-block;
@@ -631,12 +647,14 @@
             }
 
             .action-close {
+
                 &:before {
                     color: #6b7280;
                     transition: color .2s ease;
                 }
 
                 &:hover {
+
                     &:before {
                         color: #111827;
                     }
@@ -659,6 +677,7 @@
     .catalog-product-view {
 
         .block.related {
+
             .product-items {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
             }
@@ -682,6 +701,7 @@
         }
 
         .page-title-wrapper {
+
             .page-title {
                 font-size: 25px;
                 letter-spacing: -.3px;
@@ -689,7 +709,9 @@
         }
 
         .product-info-price {
+
             .price-box {
+
                 .price {
                     font-size: 25px;
                 }
@@ -703,8 +725,10 @@
                 flex-direction: column;
                 align-items: stretch;
 
-                #product-addtocart-button {
+                #product-addtocart-button,
+                #product-enquiry-button {
                     width: 100%;
+                    margin: 10px 0;
                 }
             }
         }
@@ -718,6 +742,7 @@
             padding: 22px 15px;
 
             .block-title {
+
                 strong {
                     font-size: 21px;
                 }
@@ -741,6 +766,7 @@
             }
 
             .price-box {
+
                 .price {
                     font-size: 15px;
                 }

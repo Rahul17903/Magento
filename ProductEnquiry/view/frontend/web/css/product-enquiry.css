@@ -194,23 +194,31 @@
     gap: 12px;
 }
 
+
+/* =========================================
+   ADD TO CART BUTTON
+   ========================================= */
+
 .catalog-product-view #product-addtocart-button {
     min-height: 48px;
     padding: 12px 30px;
-    border: 0;
-    border-radius: 7px;
-    background: #111827;
+    border: none;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #2b5876 0%, #4e4376 51%, #2b5876 100%);
+    background-size: 200% auto;
     color: #ffffff;
     font-size: 15px;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(17, 24, 39, .18);
+    text-align: center;
     cursor: pointer;
-    transition: background-color .2s ease, box-shadow .2s ease, transform .1s ease;
+    box-shadow: 0 0 20px #eee;
+    transition: 0.5s;
 }
 
 .catalog-product-view #product-addtocart-button:hover {
-    background: #000000;
-    box-shadow: 0 7px 18px rgba(17, 24, 39, .22);
+    background-position: right center;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .catalog-product-view #product-addtocart-button:active {
@@ -219,26 +227,34 @@
 
 .catalog-product-view #product-addtocart-button:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(17, 24, 39, .15);
+    box-shadow: 0 0 20px #eee;
 }
+
+
+/* =========================================
+   PRODUCT ENQUIRY BUTTON
+   ========================================= */
 
 .catalog-product-view #product-enquiry-button {
     min-height: 48px;
     padding: 12px 30px;
-    border: 0;
-    border-radius: 7px;
-    background: #1979c3;
+    border: none;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #2b5876 0%, #4e4376 51%, #2b5876 100%);
+    background-size: 200% auto;
     color: #ffffff;
     font-size: 15px;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(25, 121, 195, .2);
+    text-align: center;
     cursor: pointer;
-    transition: background-color .2s ease, box-shadow .2s ease, transform .1s ease;
+    box-shadow: 0 0 20px #eee;
+    transition: 0.5s;
 }
 
 .catalog-product-view #product-enquiry-button:hover {
-    background: #145f96;
-    box-shadow: 0 7px 18px rgba(25, 121, 195, .25);
+    background-position: right center;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .catalog-product-view #product-enquiry-button:active {
@@ -247,7 +263,7 @@
 
 .catalog-product-view #product-enquiry-button:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(25, 121, 195, .15);
+    box-shadow: 0 0 20px #eee;
 }
 
 .catalog-product-view .product.info.detailed {
@@ -543,7 +559,7 @@
 }
 
 .catalog-product-view .modal-popup .modal-inner-wrap {
-    width:35%;
+    width: 35%;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(15, 23, 42, .25);
@@ -670,7 +686,6 @@
         font-size: 15px;
     }
 }
-
 
 @media screen and (max-width: 767px) {
     .catalog-product-view .modal-popup .modal-inner-wrap {

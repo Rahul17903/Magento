@@ -1,0 +1,83 @@
+<!-- ko if: cart().summary_count -->
+
+<div class="cart-progress-bar minicart-progress">
+
+    <p class="progress-heading"
+       data-bind="text: getHeading()">
+    </p>
+
+    <div class="progress-track">
+
+        <!-- ko foreach: milestones -->
+
+        <div
+            class="progress-milestone"
+            data-bind="css: {
+                    completed: $parent.isCompleted($data),
+                    upcoming: !$parent.isCompleted($data)
+                }"
+        >
+
+                <span
+                    class="progress-line"
+                    data-bind="style: {
+                        '--fill': $parent.getSegmentFill($data, $index()) + '%'
+                    }"
+                ></span>
+
+            <span class="progress-circle">
+
+                    <!-- ko if: $data.type === 'delivery' && $parent.isCompleted($data) -->
+
+                        <span class="progress-icon check">
+                            &#10003;
+                        </span>
+
+                <!-- /ko -->
+
+                <!-- ko ifnot: $data.type === 'delivery' && $parent.isCompleted($data) -->
+
+                        <span class="progress-icon percent">
+                            %
+                        </span>
+
+                <!-- /ko -->
+
+                </span>
+
+        </div>
+
+        <!-- /ko -->
+
+    </div>
+
+    <div class="progress-labels">
+
+        <!-- ko foreach: milestones -->
+
+        <div
+            class="progress-label"
+            data-bind="css: {
+                    completed: $parent.isCompleted($data)
+                }"
+        >
+
+                <span
+                    class="progress-label-title"
+                    data-bind="text: label"
+                ></span>
+
+            <span
+                class="progress-label-sub"
+                data-bind="text: subLabel"
+            ></span>
+
+        </div>
+
+        <!-- /ko -->
+
+    </div>
+
+</div>
+
+<!-- /ko -->

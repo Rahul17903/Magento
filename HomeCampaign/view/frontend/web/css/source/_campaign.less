@@ -1,0 +1,493 @@
+/* Campaign Section */
+.home-campaign-section {
+    width: 100%;
+    padding: 30px 0;
+    overflow: hidden;
+
+    /* Campaign Container */
+    .home-campaign-container {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        box-sizing: border-box;
+
+        /* Campaign Banner */
+        .home-campaign-banner {
+            position: relative;
+            flex: 0 0 350px;
+            width: 350px;
+            height: 467px;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #eee;
+
+            > img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            /* Banner Content */
+            .home-campaign-banner-content {
+                position: absolute;
+                left: 30px;
+                right: 30px;
+                bottom: 30px;
+
+                h2 {
+                    margin: 0 0 20px;
+                    font-size: 36px;
+                    line-height: 1.15;
+                    font-weight: 700;
+                    color: #111;
+                }
+
+                /* Banner Button */
+                .home-campaign-button {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    min-width: 230px;
+                    padding: 14px 18px;
+                    gap: 20px;
+                    background: #063b98;
+                    color: #fff;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 700;
+
+                    &:hover {
+                        color: #fff;
+                        background: #042c73;
+                    }
+
+                    .home-campaign-button-arrow {
+                        font-size: 22px;
+                    }
+                }
+            }
+        }
+
+        /* Product Area */
+        .home-campaign-products {
+            position: relative;
+            flex: 1;
+            min-width: 0;
+            right: 50px;
+
+            /* Product Slider */
+            .home-campaign-slider {
+                width: 100%;
+                overflow: hidden;
+
+                .home-campaign-track {
+                    display: flex;
+                    margin: 0 -6px;
+                    will-change: transform;
+
+                    .home-campaign-slide {
+                        flex: 0 0 25%;
+                        padding: 0 6px;
+                        box-sizing: border-box;
+
+                        /* Product Card */
+                        .home-campaign-product-card {
+                            height: 100%;
+                            background: #fff;
+                            border-radius: 12px;
+                            overflow: hidden;
+
+                            /* Product Image */
+                            .home-campaign-product-image {
+                                position: relative;
+                                width: 100%;
+                                aspect-ratio: 1 / 1;
+                                overflow: hidden;
+                                background: #fff;
+
+                                img {
+                                    display: block;
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                    transition: transform .3s ease;
+                                }
+                            }
+
+                            &:hover {
+                                .home-campaign-product-image {
+                                    img {
+                                        transform: scale(1.04);
+                                    }
+                                }
+                            }
+
+                            /* Wishlist */
+                            .home-campaign-wishlist {
+                                position: absolute;
+                                top: 12px;
+                                right: 12px;
+                                width: 38px;
+                                height: 38px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border-radius: 50%;
+                                background: rgba(0, 0, 0, .45);
+                                color: #fff;
+                                text-decoration: none;
+                                z-index: 2;
+
+                                &:hover {
+                                    color: #fff;
+                                    background: #000;
+                                }
+
+                                span {
+                                    font-size: 26px;
+                                    line-height: 1;
+                                }
+                            }
+
+                            /* Product Info */
+                            .home-campaign-product-info {
+                                padding: 14px;
+
+                                /* Product Name */
+                                .home-campaign-product-name {
+                                    display: -webkit-box;
+                                    min-height: 42px;
+                                    overflow: hidden;
+                                    color: #111;
+                                    font-size: 15px;
+                                    line-height: 1.4;
+                                    font-weight: 600;
+                                    text-decoration: none;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+
+                                    &:hover {
+                                        color: #111;
+                                    }
+                                }
+
+                                /* Product Price */
+                                .home-campaign-product-price {
+                                    margin-top: 8px;
+                                    font-size: 16px;
+                                    font-weight: 700;
+                                }
+
+                                /* Cart Form */
+                                .home-campaign-cart-form {
+                                    margin-top: 12px;
+
+                                    /* Cart Button */
+                                    .home-campaign-cart-button,
+                                    .home-campaign-view-button {
+                                        display: block;
+                                        width: 100%;
+                                        padding: 10px;
+                                        border: 0;
+                                        border-radius: 5px;
+                                        background: #111;
+                                        color: #fff;
+                                        text-align: center;
+                                        text-decoration: none;
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        cursor: pointer;
+
+                                        &:hover {
+                                            color: #fff;
+                                            background: #333;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            /* Navigation */
+            .home-campaign-prev,
+            .home-campaign-next {
+                position: absolute;
+                top: 50%;
+                width: 46px;
+                height: 46px;
+                margin-top: -23px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 0;
+                border-radius: 50%;
+                background: rgba(0, 0, 0, .55);
+                color: #fff;
+                z-index: 5;
+                cursor: pointer;
+                font-size: 32px;
+                line-height: 1;
+
+                &:hover {
+                    background: #000;
+                }
+
+                &:disabled {
+                    opacity: .3;
+                    cursor: default;
+                }
+            }
+
+            .home-campaign-prev {
+                left: 12px;
+            }
+
+            .home-campaign-next {
+                right: 12px;
+            }
+        }
+    }
+
+    /* Tablet */
+    @media (max-width: 1199px) {
+        .home-campaign-container {
+            padding: 0 16px;
+            gap: 14px;
+
+            .home-campaign-banner {
+                flex: 0 0 300px;
+                width: 300px;
+                height: 400px;
+
+                .home-campaign-banner-content {
+                    left: 24px;
+                    right: 24px;
+                    bottom: 24px;
+
+                    h2 {
+                        font-size: 30px;
+                    }
+
+                    .home-campaign-button {
+                        min-width: 200px;
+                        padding: 12px 16px;
+                    }
+                }
+            }
+
+            .home-campaign-products {
+                .home-campaign-slider {
+                    .home-campaign-track {
+                        .home-campaign-slide {
+                            flex-basis: 33.3333%;
+                        }
+                    }
+                }
+
+                .home-campaign-product-info {
+                    padding: 12px;
+
+                    .home-campaign-product-name {
+                        font-size: 14px;
+                    }
+
+                    .home-campaign-product-price {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 767px) {
+        padding: 20px 0 30px;
+
+        .home-campaign-container {
+            display: block;
+            width: 100%;
+            padding: 0;
+
+            .home-campaign-banner {
+                width: calc(100% - 24px);
+                height: auto;
+                aspect-ratio: 375 / 223;
+                margin: 0 12px;
+                border-radius: 8px;
+
+                .home-campaign-banner-content {
+                    top: 20px;
+                    left: 20px;
+                    right: 20px;
+                    bottom: auto;
+
+                    h2 {
+                        margin-bottom: 10px;
+                        font-size: 22px;
+                        line-height: 1.2;
+                    }
+
+                    .home-campaign-button {
+                        min-width: 0;
+                        padding: 10px 16px;
+                        gap: 12px;
+                        font-size: 12px;
+                        border-radius: 4px;
+
+                        .home-campaign-button-arrow {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+
+            .home-campaign-products {
+                width: 100%;
+                margin-top: -45px;
+                right: auto;
+                z-index: 3;
+
+                .home-campaign-slider {
+                    width: 100%;
+                    padding: 0 16px;
+                    box-sizing: border-box;
+
+                    .home-campaign-track {
+                        margin: 0 -5px;
+
+                        .home-campaign-slide {
+                            flex: 0 0 50%;
+                            padding: 0 5px;
+                        }
+                    }
+                }
+
+                .home-campaign-product-info {
+                    padding: 10px 8px;
+
+                    .home-campaign-product-name {
+                        min-height: 34px;
+                        font-size: 12px;
+                        line-height: 1.35;
+                    }
+
+                    .home-campaign-product-price {
+                        margin-top: 6px;
+                        font-size: 13px;
+                    }
+
+                    .home-campaign-cart-form {
+                        margin-top: 8px;
+
+                        .home-campaign-cart-button,
+                        .home-campaign-view-button {
+                            padding: 8px 6px;
+                            font-size: 11px;
+                        }
+                    }
+                }
+
+                .home-campaign-wishlist {
+                    top: 8px;
+                    right: 8px;
+                    width: 28px;
+                    height: 28px;
+
+                    span {
+                        font-size: 20px;
+                    }
+                }
+
+                .home-campaign-prev,
+                .home-campaign-next {
+                    width: 34px;
+                    height: 34px;
+                    margin-top: -17px;
+                    font-size: 24px;
+                }
+
+                .home-campaign-prev {
+                    left: 8px;
+                }
+
+                .home-campaign-next {
+                    right: 8px;
+                }
+            }
+        }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 575px) {
+        padding-top: 15px;
+
+        .home-campaign-container {
+            .home-campaign-banner {
+                width: calc(100% - 12px);
+                margin: 0 6px;
+                aspect-ratio: 375 / 223;
+                border-radius: 6px;
+
+                .home-campaign-banner-content {
+                    top: 16px;
+                    left: 14px;
+                    right: 14px;
+
+                    h2 {
+                        margin-bottom: 8px;
+                        font-size: 20px;
+                    }
+
+                    .home-campaign-button {
+                        padding: 9px 14px;
+                        font-size: 11px;
+                    }
+                }
+            }
+
+            .home-campaign-products {
+                margin-top: -45px;
+
+                .home-campaign-slider {
+                    padding: 0 10px;
+
+                    .home-campaign-track {
+                        .home-campaign-slide {
+                            flex: 0 0 50%;
+                            padding: 0 5px;
+                        }
+                    }
+                }
+
+                .home-campaign-product-info {
+                    padding: 9px 7px;
+
+                    .home-campaign-product-name {
+                        min-height: 30px;
+                        font-size: 11px;
+                    }
+
+                    .home-campaign-product-price {
+                        font-size: 12px;
+                    }
+
+                    .home-campaign-cart-form {
+                        .home-campaign-cart-button,
+                        .home-campaign-view-button {
+                            padding: 7px 5px;
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
