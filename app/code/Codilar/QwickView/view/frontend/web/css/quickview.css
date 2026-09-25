@@ -1,148 +1,168 @@
+/* PRODUCT IMAGE AREA  */
+
+.product-item .product-card-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-item .product-card-image .product-item-photo {
+    display: block;
+}
+
+
 /* =========================================
-   Add to Cart + Quick View Buttons
+   QUICK VIEW BUTTON
    ========================================= */
 
-.product-item .actions-primary {
+.product-item .quick-view-button {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 15;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-}
-
-.product-item .actions-primary .action.tocart,
-.product-item .actions-primary .quick-view-button {
-    display: inline-flex;
-    align-items: center;
     justify-content: center;
-
-    padding: 5px 10px;
-    min-height: 38px;
-    width: auto;
-
-    margin-top: 0;
-
-    font-size: 1.3rem;
-    font-weight: 600;
-
-    border-radius: 3px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: #3f3d39;
+    box-shadow: 0 3px 12px rgba(30, 30, 30, 0.14);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.product-item .actions-primary .quick-view-button {
-    margin-left: 10px;
+
+/* Show Quick View on image hover */
+
+.product-item .product-card-image:hover .quick-view-button {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* =========================================
+   QUICK VIEW ICON
+   ========================================= */
+
+.product-item .quick-view-icon {
+    position: relative;
+    display: block;
+    width: 15px;
+    height: 10px;
+    border: 1.4px solid currentColor;
+    border-radius: 70% 20%;
+    transform: rotate(-45deg);
+}
+
+.product-item .quick-view-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    transform: translate(-50%, -50%);
+}
+
+/* =========================================
+   QUICK VIEW HOVER
+   ========================================= */
+
+.product-item .quick-view-button:hover {
+    background: #3f3d39;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 16px rgba(30, 30, 30, 0.20);
 }
 
 
 /* =========================================
-   Quick View Product Area
+   QUICK VIEW MODAL
    ========================================= */
 
 .quick-view-product {
     display: flex;
     align-items: flex-start;
-
     gap: 45px;
     padding: 15px 10px 25px;
-
     background: #ffffff;
     color: #171717;
 }
 
-
 /* =========================================
-   Product Image
+   MODAL IMAGE
    ========================================= */
 
 .quick-view-image {
     width: 45%;
-
     padding: 22px;
-
     box-sizing: border-box;
-
     background: #f6f5f2;
-
     border-radius: 10px;
 }
 
 .quick-view-image img {
     display: block;
-
     width: 100%;
     height: auto;
-
     border-radius: 6px;
 }
 
 
 /* =========================================
-   Product Details
+   MODAL DETAILS
    ========================================= */
 
 .quick-view-details {
     width: 55%;
-
     padding: 5px 10px 5px 0;
 }
 
-
-/* =========================================
-   Product Title
-   ========================================= */
-
 .quick-view-details h2 {
     margin: 0 0 20px;
-
     color: #151515;
-
     font-family: Georgia, "Times New Roman", serif;
-
     font-size: 3rem;
     font-weight: 500;
-
     line-height: 1.15;
-    letter-spacing: -0.6px;
 }
-
-
-/* =========================================
-   General Product Information
-   ========================================= */
 
 .quick-view-details p {
     margin: 9px 0;
-
     color: #77736d;
-
-    font-family: Arial, Helvetica, sans-serif;
-
     font-size: 1.35rem;
-    font-weight: 400;
-
     line-height: 1.7;
 }
 
 .quick-view-details p strong {
     color: #222222;
-
     font-weight: 600;
 }
 
-
 /* =========================================
-   Product Price
+   PRICE
    ========================================= */
 
 .quick-view-details .quick-view-price {
     display: block;
-
     margin: 5px 0 20px;
-
     color: #111111;
-
     font-size: 2.4rem;
     font-weight: 700;
-
-    line-height: 1.2;
-    letter-spacing: -0.3px;
 }
 
 
@@ -152,184 +172,111 @@
 
 .quick-view-details .quick-view-sku {
     color: #99938c;
-
     font-size: 1.2rem;
     letter-spacing: 0.5px;
 }
 
 
 /* =========================================
-   Stock
+   STOCK
    ========================================= */
 
 .quick-view-details .quick-view-stock {
     color: #333333;
-
     font-size: 1.25rem;
     font-weight: 600;
 }
 
 
 /* =========================================
-   Description
+   DESCRIPTION
    ========================================= */
 
 .quick-view-description {
     margin-top: 28px;
     padding-top: 20px;
-
     border-top: 1px solid #eeeeeb;
-
     color: #6f6c67;
-
     font-size: 1.35rem;
     line-height: 1.8;
 }
 
-
-/* Description Heading */
-
 .quick-view-description::before {
     content: "DESCRIPTION";
-
     display: block;
-
     margin-bottom: 10px;
-
     color: #1a1a1a;
-
-    font-family: Arial, Helvetica, sans-serif;
-
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: 2.5px;
 }
 
 
 /* =========================================
-   Premium Quick View Modal
+   MODAL
    ========================================= */
 
 .modal-popup .modal-inner-wrap {
     width: 90%;
     max-width: 1050px;
-
     background: #ffffff;
-
     border-radius: 12px;
     overflow: hidden;
-
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
 }
 
-
-/* =========================================
-   Modal Header
-   ========================================= */
-
 .modal-popup .modal-header {
     position: relative;
-
     padding: 25px 30px 8px;
-
     background: #ffffff;
-
     border: 0 !important;
     border-bottom: 0 !important;
 }
 
-
-/* Quick View Heading */
-
 .modal-popup .modal-title {
     margin: 0;
-
     color: #8a857d;
-
-    font-family: Arial, Helvetica, sans-serif;
-
     font-size: 11px;
     font-weight: 700;
-
     letter-spacing: 3px;
-    line-height: 1.5;
-
     text-transform: uppercase;
 }
 
-
-/* =========================================
-   Close Button
-   ========================================= */
-
 .modal-popup .action-close {
     position: absolute;
-
     top: 12px;
     right: 15px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 42px;
     height: 42px;
-
     padding: 0;
-
     border: 0 !important;
     border-radius: 50%;
-
     background: transparent;
-
     box-shadow: none;
-
-    transition: all 0.25s ease;
 }
-
-
-/* Close Icon */
 
 .modal-popup .action-close:before {
     color: #202020;
-
     font-size: 25px;
     font-weight: 300;
-
-    transition: all 0.25s ease;
 }
-
-
-/* Close Hover */
 
 .modal-popup .action-close:hover {
     background: #f3f2ef;
 }
 
 .modal-popup .action-close:hover:before {
-    color: #111111;
-
     transform: rotate(90deg);
 }
 
-
-/* =========================================
-   Modal Content
-   ========================================= */
-
 .modal-popup .modal-content {
     padding: 10px 30px 35px;
-
     background: #ffffff;
-
     border: 0 !important;
 }
-
-
-/* =========================================
-   Modal Overlay
-   ========================================= */
 
 .modal-popup._show .modal-overlay {
     background: rgba(18, 18, 18, 0.70);
@@ -337,104 +284,51 @@
 
 
 /* =========================================
-   Mobile
+   MOBILE
    ========================================= */
 
 @media (max-width: 768px) {
 
-    /* Modal */
-
-    .modal-popup .modal-inner-wrap {
-        width: 94%;
-
-        border-radius: 10px;
-    }
-
-    .modal-popup .modal-header {
-        padding: 20px 20px 8px;
-
-        border: 0 !important;
-        border-bottom: 0 !important;
-    }
-
-    .modal-popup .modal-content {
-        padding: 5px 15px 20px;
-
-        border: 0 !important;
-    }
-
-
-    /* Modal Title */
-
-    .modal-popup .modal-title {
-        font-size: 10px;
-        letter-spacing: 2.5px;
-    }
-
-
-    /* Close */
-
-    .modal-popup .action-close {
-        top: 8px;
+    .product-item .quick-view-button {
         right: 10px;
-
-        width: 38px;
-        height: 38px;
+        bottom: 10px;
+        width: 34px;
+        height: 34px;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
     }
-
-    .modal-popup .action-close:before {
-        font-size: 22px;
-    }
-
-
-    /* Product */
 
     .quick-view-product {
         display: block;
-
         padding: 10px;
     }
 
-
-    /* Image */
-
     .quick-view-image {
         width: 100%;
-
         padding: 15px;
     }
-
-
-    /* Details */
 
     .quick-view-details {
         width: 100%;
 
         margin-top: 25px;
-
         padding: 0;
     }
-
-
-    /* Title */
 
     .quick-view-details h2 {
         font-size: 2.2rem;
     }
 
-
-    /* Price */
-
     .quick-view-details .quick-view-price {
         font-size: 2rem;
     }
 
+    .modal-popup .modal-inner-wrap {
+        width: 94%;
+    }
 
-    /* Description */
-
-    .quick-view-description {
-        margin-top: 20px;
-
-        padding-top: 18px;
+    .modal-popup .modal-content {
+        padding: 5px 15px 20px;
     }
 }

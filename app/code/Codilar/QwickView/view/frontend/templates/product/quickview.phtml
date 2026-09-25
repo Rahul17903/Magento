@@ -1,11 +1,14 @@
 <?php
-/** @var \Codilar\QwickView\Block\Product\QuickView $block */
+/**
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Codilar\QwickView\Block\Product\QuickView $block
+ */
 ?>
 
 <div id="quick-view-popup" style="display: none;">
 
     <div class="quick-view-loader">
-        <?= $block->escapeHtml(__('Loading...')) ?>
+        <?= $escaper->escapeHtml(__('Loading...')) ?>
     </div>
 
     <div class="quick-view-product" style="display: none;">
@@ -23,22 +26,22 @@
             <h2 id="quick-view-product-name"></h2>
 
             <p>
-                <strong><?= $block->escapeHtml(__('Price:')) ?></strong>
+                <strong><?= $escaper->escapeHtml(__('Price:')) ?></strong>
                 <span id="quick-view-product-price"></span>
             </p>
 
             <p>
-                <strong><?= $block->escapeHtml(__('SKU:')) ?></strong>
+                <strong><?= $escaper->escapeHtml(__('SKU:')) ?></strong>
                 <span id="quick-view-product-sku"></span>
             </p>
 
             <p>
-                <strong><?= $block->escapeHtml(__('Stock:')) ?></strong>
+                <strong><?= $escaper->escapeHtml(__('Stock:')) ?></strong>
                 <span id="quick-view-product-stock"></span>
             </p>
 
             <div class="quick-view-description">
-                <strong><?= $block->escapeHtml(__('Description:')) ?></strong>
+                <strong><?= $escaper->escapeHtml(__('Description:')) ?></strong>
 
                 <div id="quick-view-product-description"></div>
             </div>
@@ -53,7 +56,7 @@
     {
         "*": {
             "Codilar_QwickView/js/quickview": {
-                "ajaxUrl": "<?= $block->escapeUrl($block->getQuickViewUrl()) ?>"
+                "ajaxUrl": "<?= $escaper->escapeUrl($block->getQuickViewUrl()) ?>"
         }
     }
 }

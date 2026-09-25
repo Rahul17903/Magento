@@ -8,6 +8,10 @@ declare(strict_types=1);
  */
 
 $products = $block->getProducts();
+
+$voucherTitle = (string) $block->getData('voucher_title');
+$voucherCode = (string) $block->getData('voucher_code');
+$voucherMinSpend = (string) $block->getData('voucher_min_spend');
 ?>
 
 <?php if ($products->getSize()): ?>
@@ -40,13 +44,13 @@ $products = $block->getProducts();
                         href="<?= $escaper->escapeUrl($block->getButtonUrl()) ?>"
                         class="home-campaign-button"
                     >
-                    <span>
-                        <?= $escaper->escapeHtml($block->getButtonText()) ?>
-                    </span>
+                        <span>
+                            <?= $escaper->escapeHtml($block->getButtonText()) ?>
+                        </span>
 
                         <span class="home-campaign-button-arrow">
-                        →
-                    </span>
+                            →
+                        </span>
                     </a>
 
                 </div>
@@ -203,6 +207,71 @@ $products = $block->getProducts();
             </div>
 
         </div>
+
+        <!-- Voucher -->
+        <?php if ($voucherTitle || $voucherCode): ?>
+
+            <div class="home-campaign-voucher">
+
+                <div class="home-campaign-voucher-content">
+
+                    <div class="home-campaign-voucher-info">
+
+                        <span class="home-campaign-voucher-label">
+                            <?= $escaper->escapeHtml(__('Voucher Code')) ?>
+                        </span>
+
+                        <div class="home-campaign-voucher-title">
+
+                            <strong>
+                                <?= $escaper->escapeHtml($voucherTitle) ?>
+                            </strong>
+
+                            <?php if ($voucherMinSpend): ?>
+
+                                <small>
+                                    (* <?= $escaper->escapeHtml($voucherMinSpend) ?>)
+                                </small>
+
+                            <?php endif; ?>
+
+                        </div>
+
+                    </div>
+
+                    <?php if ($voucherCode): ?>
+
+                        <button
+                            type="button"
+                            class="home-campaign-voucher-code"
+                            data-voucher-code="<?= $escaper->escapeHtmlAttr(
+                                $voucherCode
+                            ) ?>"
+                            aria-label="<?= $escaper->escapeHtmlAttr(
+                                __('Copy voucher code')
+                            ) ?>"
+                        >
+
+                            <span class="home-campaign-voucher-code-text">
+                                <?= $escaper->escapeHtml($voucherCode) ?>
+                            </span>
+
+                            <span
+                                class="home-campaign-voucher-copy"
+                                aria-hidden="true"
+                            >
+                                <span class="home-campaign-copy-icon"></span>
+                            </span>
+
+                        </button>
+
+                    <?php endif; ?>
+
+                </div>
+
+            </div>
+
+        <?php endif; ?>
 
     </section>
 

@@ -1,5 +1,8 @@
 <?php
-/** @var \Codilar\ShowPrice\Block\Cart\Sku $block */
+/**
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Codilar\ShowPrice\Block\Cart\Sku $block
+ */
 
 $sku = $block->getProductSku();
 $productNote = $block->getProductNote();
@@ -7,14 +10,14 @@ $productNote = $block->getProductNote();
 
 <?php if ($sku): ?>
     <div class="cart-item-sku">
-        <strong><?= $block->escapeHtml(__('SKU:')) ?></strong>
-        <span><?= $block->escapeHtml($sku) ?></span>
+        <strong><?= $escaper->escapeHtml(__('SKU:')) ?></strong>
+        <span><?= $escaper->escapeHtml($sku) ?></span>
     </div>
 <?php endif; ?>
 
 <?php if ($productNote): ?>
     <div class="product-note">
-        <strong><?= $block->escapeHtml(__('Product Note:')) ?></strong>
-        <span><?= $block->escapeHtml($productNote) ?></span>
+        <strong><?= $escaper->escapeHtml(__('Product Note:')) ?></strong>
+        <span><?= $escaper->escapeHtml($productNote) ?></span>
     </div>
 <?php endif; ?>

@@ -7,18 +7,18 @@
 
 .cart-progress-bar {
     background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-    padding: 20px 24px 24px;
-    margin-bottom: 20px;
+    border: 0.1rem solid #e0e0e0;
+    border-radius: 1.2rem;
+    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.06);
+    padding: 2rem 2.4rem 2.4rem;
+    margin-bottom: 2rem;
 
     .progress-heading {
-        font-size: 16px;
+        font-size: 1.6rem;
         font-weight: 700;
         line-height: 1.4;
         color: @text-color;
-        margin: 0 0 20px;
+        margin: 0 0 2rem;
     }
 
     .progress-track {
@@ -35,9 +35,9 @@
             .progress-line {
                 --fill: 0%;
                 flex: 1 1 auto;
-                height: 3px;
-                border-radius: 2px;
-                margin: 0 -1px;
+                height: 0.3rem;
+                border-radius: 0.2rem;
+                margin: 0 -0.1rem;
                 background: linear-gradient(
                     to right,
                     @completed-color 0%,
@@ -49,8 +49,8 @@
 
             .progress-circle {
                 flex: 0 0 auto;
-                width: 32px;
-                height: 32px;
+                width: 3.2rem;
+                height: 3.2rem;
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
@@ -59,7 +59,7 @@
                 z-index: 1;
 
                 .progress-icon {
-                    font-size: 14px;
+                    font-size: 1.4rem;
                     line-height: 1;
                     font-weight: 700;
                     color: @upcoming-color;
@@ -85,18 +85,18 @@
     .progress-labels {
         display: flex;
         width: 100%;
-        margin-top: 10px;
+        margin-top: 1rem;
 
         .progress-label {
             flex: 1 1 0;
             min-width: 0;
-            padding: 0 4px;
+            padding: 0 0.4rem;
             text-align: center;
-            transform: translateX(calc(50% - 16px));
+            transform: translateX(calc(50% - 1.6rem));
 
             .progress-label-title {
                 display: block;
-                font-size: 13px;
+                font-size: 1.2rem;
                 font-weight: 700;
                 line-height: 1.25;
                 color: @text-color;
@@ -105,8 +105,8 @@
 
             .progress-label-sub {
                 display: block;
-                margin-top: 2px;
-                font-size: 12px;
+                margin-top: 0.2rem;
+                font-size: 1.2rem;
                 line-height: 1.25;
                 color: @subtext-color;
                 white-space: nowrap;
@@ -121,24 +121,27 @@
     }
 }
 
+/*
+ * Mobile
+ */
 @media (max-width: 768px) {
     .cart-progress-bar {
-        padding: 18px 16px 20px;
+        padding: 1.8rem 1.6rem 2rem;
 
         .progress-heading {
-            font-size: 15px;
+            font-size: 1.5rem;
             line-height: 1.35;
-            margin-bottom: 18px;
+            margin-bottom: 1.8rem;
         }
 
         .progress-track {
             .progress-milestone {
                 .progress-circle {
-                    width: 28px;
-                    height: 28px;
+                    width: 2.8rem;
+                    height: 2.8rem;
 
                     .progress-icon {
-                        font-size: 13px;
+                        font-size: 1.3rem;
                     }
                 }
             }
@@ -146,16 +149,16 @@
 
         .progress-labels {
             .progress-label {
-                padding: 0 3px;
-                transform: translateX(calc(50% - 14px));
+                padding: 0 0.3rem;
+                transform: translateX(calc(50% - 1.4rem));
 
                 .progress-label-title {
-                    font-size: 11px;
+                    font-size: 0.9rem;
                     line-height: 1.2;
                 }
 
                 .progress-label-sub {
-                    font-size: 10px;
+                    font-size: 1rem;
                     line-height: 1.2;
                 }
             }
@@ -163,24 +166,27 @@
     }
 }
 
+/*
+ * Small Mobile
+ */
 @media (max-width: 480px) {
     .cart-progress-bar {
-        padding: 16px 12px 18px;
+        padding: 1.6rem 1.2rem 1.8rem;
 
         .progress-heading {
-            font-size: 14px;
+            font-size: 1.4rem;
             line-height: 1.35;
-            margin-bottom: 16px;
+            margin-bottom: 1.6rem;
         }
 
         .progress-track {
             .progress-milestone {
                 .progress-circle {
-                    width: 26px;
-                    height: 26px;
+                    width: 2.6rem;
+                    height: 2.6rem;
 
                     .progress-icon {
-                        font-size: 12px;
+                        font-size: 1.2rem;
                     }
                 }
             }
@@ -188,19 +194,65 @@
 
         .progress-labels {
             .progress-label {
-                padding: 0 2px;
-                transform: translateX(calc(50% - 13px));
+                padding: 0 0.2rem;
+                transform: translateX(calc(50% - 1.3rem));
 
                 .progress-label-title {
-                    font-size: 10px;
+                    font-size: 0.8rem;
                     line-height: 1.2;
                 }
 
                 .progress-label-sub {
-                    font-size: 9px;
+                    font-size: 0.9rem;
                     line-height: 1.2;
                 }
             }
         }
+    }
+}
+
+/*
+ * Mini Cart
+ */
+.minicart-progress-wrapper {
+    padding: 1.2rem;
+
+    .cart-progress-bar {
+        padding: 1.6rem 1.4rem;
+        margin: 0;
+        border-radius: 1rem;
+    }
+
+    .progress-heading {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-bottom: 1.6rem;
+    }
+
+    .progress-circle {
+        width: 2.6rem;
+        height: 2.6rem;
+    }
+
+    .progress-icon {
+        font-size: 1.2rem;
+    }
+
+    .progress-label {
+        padding: 0 0.2rem;
+    }
+
+    .progress-label-title {
+        font-size: 1rem;
+        line-height: 1.4rem;
+    }
+
+    .progress-label-sub {
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+    }
+
+    .progress-line {
+        height: 0.2rem;
     }
 }

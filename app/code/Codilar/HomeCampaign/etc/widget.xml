@@ -58,6 +58,30 @@
                 <description>Example: gear/watches.html</description>
             </parameter>
 
+            <parameter name="voucher_title"
+                       xsi:type="text"
+                       visible="true"
+                       sort_order="70">
+                <label>Voucher Title</label>
+                <value>Voucher 99K</value>
+            </parameter>
+
+            <parameter name="voucher_code"
+                       xsi:type="text"
+                       visible="true"
+                       sort_order="80">
+                <label>Voucher Code</label>
+                <value>CROFFER12</value>
+            </parameter>
+
+            <parameter name="voucher_min_spend"
+                       xsi:type="text"
+                       visible="true"
+                       sort_order="90">
+                <label>Voucher Minimum Spend Text</label>
+                <value>with minimum spend 899K</value>
+            </parameter>
+
         </parameters>
 
     </widget>

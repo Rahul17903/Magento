@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-/** @var \Codilar\ProductEnquiry\Block\EnquiryCollection $block */
+/**
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Codilar\ProductEnquiry\Block\EnquiryCollection $block
+ */
 
 $enquiries = $block->getEnquiries();
 $enquiryCount = $enquiries->getSize();
@@ -14,15 +17,15 @@ $enquiryCount = $enquiries->getSize();
 
         <div class="product-enquiry-heading">
             <span class="product-enquiry-eyebrow">
-                <?= $block->escapeHtml(__('Customer Requests')) ?>
+                <?= $escaper->escapeHtml(__('Customer Requests')) ?>
             </span>
 
             <h1>
-                <?= $block->escapeHtml(__('Product Enquiries')) ?>
+                <?= $escaper->escapeHtml(__('Product Enquiries')) ?>
             </h1>
 
             <p>
-                <?= $block->escapeHtml(
+                <?= $escaper->escapeHtml(
                     __('View and manage all product enquiry requests submitted by customers.')
                 ) ?>
             </p>
@@ -30,11 +33,11 @@ $enquiryCount = $enquiries->getSize();
 
         <div class="product-enquiry-summary">
             <span class="product-enquiry-summary-label">
-                <?= $block->escapeHtml(__('Total Enquiries')) ?>
+                <?= $escaper->escapeHtml(__('Total Enquiries')) ?>
             </span>
 
             <strong>
-                <?= $block->escapeHtml((string) $enquiryCount) ?>
+                <?= $escaper->escapeHtml((string) $enquiryCount) ?>
             </strong>
         </div>
 
@@ -48,19 +51,19 @@ $enquiryCount = $enquiries->getSize();
 
                 <div>
                     <h2>
-                        <?= $block->escapeHtml(__('Enquiry Requests')) ?>
+                        <?= $escaper->escapeHtml(__('Enquiry Requests')) ?>
                     </h2>
 
                     <span>
-                        <?= $block->escapeHtml(
+                        <?= $escaper->escapeHtml(
                             __('Customer product enquiry submissions')
                         ) ?>
                     </span>
                 </div>
 
                 <span class="product-enquiry-count">
-                    <?= $block->escapeHtml((string) $enquiryCount) ?>
-                    <?= $block->escapeHtml(__(' Requests')) ?>
+                    <?= $escaper->escapeHtml((string) $enquiryCount) ?>
+                    <?= $escaper->escapeHtml(__(' Requests')) ?>
                 </span>
 
             </div>
@@ -71,13 +74,13 @@ $enquiryCount = $enquiries->getSize();
 
                     <thead>
                     <tr>
-                        <th><?= $block->escapeHtml(__('ID')) ?></th>
-                        <th><?= $block->escapeHtml(__('Customer')) ?></th>
-                        <th><?= $block->escapeHtml(__('Email')) ?></th>
-                        <th><?= $block->escapeHtml(__('Address')) ?></th>
-                        <th><?= $block->escapeHtml(__('SKU')) ?></th>
-                        <th><?= $block->escapeHtml(__('Qty')) ?></th>
-                        <th><?= $block->escapeHtml(__('Submitted')) ?></th>
+                        <th><?= $escaper->escapeHtml(__('ID')) ?></th>
+                        <th><?= $escaper->escapeHtml(__('Customer')) ?></th>
+                        <th><?= $escaper->escapeHtml(__('Email')) ?></th>
+                        <th><?= $escaper->escapeHtml(__('Address')) ?></th>
+                        <th><?= $escaper->escapeHtml(__('SKU')) ?></th>
+                        <th><?= $escaper->escapeHtml(__('Qty')) ?></th>
+                        <th><?= $escaper->escapeHtml(__('Submitted')) ?></th>
                     </tr>
                     </thead>
 
@@ -89,7 +92,7 @@ $enquiryCount = $enquiries->getSize();
 
                             <td>
                                 <span class="product-enquiry-id">
-                                    #<?= $block->escapeHtml(
+                                    #<?= $escaper->escapeHtml(
                                         (string) $enquiry->getId()
                                     ) ?>
                                 </span>
@@ -98,7 +101,7 @@ $enquiryCount = $enquiries->getSize();
                             <td>
                                 <div class="product-enquiry-customer">
                                     <span class="product-enquiry-avatar">
-                                        <?= $block->escapeHtml(
+                                        <?= $escaper->escapeHtml(
                                             strtoupper(
                                                 substr(
                                                     (string) $enquiry->getName(),
@@ -110,7 +113,7 @@ $enquiryCount = $enquiries->getSize();
                                     </span>
 
                                     <span class="product-enquiry-name">
-                                        <?= $block->escapeHtml(
+                                        <?= $escaper->escapeHtml(
                                             $enquiry->getName()
                                         ) ?>
                                     </span>
@@ -120,11 +123,11 @@ $enquiryCount = $enquiries->getSize();
                             <td>
                                 <a
                                     class="product-enquiry-email"
-                                    href="mailto:<?= $block->escapeHtmlAttr(
+                                    href="mailto:<?= $escaper->escapeHtmlAttr(
                                         $enquiry->getEmail()
                                     ) ?>"
                                 >
-                                    <?= $block->escapeHtml(
+                                    <?= $escaper->escapeHtml(
                                         $enquiry->getEmail()
                                     ) ?>
                                 </a>
@@ -132,7 +135,7 @@ $enquiryCount = $enquiries->getSize();
 
                             <td>
                                 <span class="product-enquiry-address">
-                                    <?= $block->escapeHtml(
+                                    <?= $escaper->escapeHtml(
                                         $enquiry->getAddress()
                                     ) ?>
                                 </span>
@@ -140,7 +143,7 @@ $enquiryCount = $enquiries->getSize();
 
                             <td>
                                 <span class="product-enquiry-sku">
-                                    <?= $block->escapeHtml(
+                                    <?= $escaper->escapeHtml(
                                         $enquiry->getSku()
                                     ) ?>
                                 </span>
@@ -148,7 +151,7 @@ $enquiryCount = $enquiries->getSize();
 
                             <td>
                                 <span class="product-enquiry-qty">
-                                    <?= $block->escapeHtml(
+                                    <?= $escaper->escapeHtml(
                                         (string) $enquiry->getQty()
                                     ) ?>
                                 </span>
@@ -156,7 +159,7 @@ $enquiryCount = $enquiries->getSize();
 
                             <td>
                                 <span class="product-enquiry-date">
-                                    <?= $block->escapeHtml(
+                                    <?= $escaper->escapeHtml(
                                         $enquiry->getCreatedAt()
                                     ) ?>
                                 </span>
@@ -183,11 +186,11 @@ $enquiryCount = $enquiries->getSize();
             </div>
 
             <h2>
-                <?= $block->escapeHtml(__('No Enquiries Yet')) ?>
+                <?= $escaper->escapeHtml(__('No Enquiries Yet')) ?>
             </h2>
 
             <p>
-                <?= $block->escapeHtml(
+                <?= $escaper->escapeHtml(
                     __('There are currently no product enquiry requests.')
                 ) ?>
             </p>

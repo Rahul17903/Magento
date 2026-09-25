@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-/** @var \Magento\Catalog\Block\Product\View $block */
+/**
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Magento\Catalog\Block\Product\View $block
+ */
 
 $product = $block->getProduct();
 ?>
@@ -12,7 +15,7 @@ $product = $block->getProduct();
     <div id="product-enquiry-modal" style="display: none;">
 
         <div id="product-enquiry-form"
-             data-submit-url="<?= $block->escapeUrl(
+             data-submit-url="<?= $escaper->escapeUrl(
                  $block->getUrl('productenquiry/index/submit')
              ) ?>">
 
@@ -23,7 +26,7 @@ $product = $block->getProduct();
 
                 <label class="label" for="enquiry-name">
                     <span>
-                        <?= $block->escapeHtml(__('Name')) ?>
+                        <?= $escaper->escapeHtml(__('Name')) ?>
                     </span>
                 </label>
 
@@ -43,7 +46,7 @@ $product = $block->getProduct();
 
                 <label class="label" for="enquiry-email">
                     <span>
-                        <?= $block->escapeHtml(__('Email')) ?>
+                        <?= $escaper->escapeHtml(__('Email')) ?>
                     </span>
                 </label>
 
@@ -63,7 +66,7 @@ $product = $block->getProduct();
 
                 <label class="label" for="enquiry-address">
                     <span>
-                        <?= $block->escapeHtml(__('Address')) ?>
+                        <?= $escaper->escapeHtml(__('Address')) ?>
                     </span>
                 </label>
 
@@ -83,7 +86,7 @@ $product = $block->getProduct();
 
                 <label class="label" for="enquiry-sku">
                     <span>
-                        <?= $block->escapeHtml(__('SKU')) ?>
+                        <?= $escaper->escapeHtml(__('SKU')) ?>
                     </span>
                 </label>
 
@@ -93,7 +96,7 @@ $product = $block->getProduct();
                            name="sku"
                            id="enquiry-sku"
                            class="input-text"
-                           value="<?= $block->escapeHtmlAttr(
+                           value="<?= $escaper->escapeHtmlAttr(
                                $product->getSku()
                            ) ?>"
                            readonly>
@@ -107,7 +110,7 @@ $product = $block->getProduct();
 
                 <label class="label" for="enquiry-qty">
                     <span>
-                        <?= $block->escapeHtml(__('Qty')) ?>
+                        <?= $escaper->escapeHtml(__('Qty')) ?>
                     </span>
                 </label>
 
@@ -132,7 +135,7 @@ $product = $block->getProduct();
                         class="action primary">
 
                     <span>
-                        <?= $block->escapeHtml(__('Submit')) ?>
+                        <?= $escaper->escapeHtml(__('Submit')) ?>
                     </span>
 
                 </button>

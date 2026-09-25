@@ -32,4 +32,43 @@
         </arguments>
     </type>
 
+
+<!-- Product Enquiry Admin Grid Collection -->
+    <virtualType
+        name="Codilar\ProductEnquiry\Model\ResourceModel\ProductEnquiry\Grid\Collection"
+        type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult"
+    >
+        <arguments>
+            <argument name="mainTable" xsi:type="string">
+                codilar_product_enquiry
+            </argument>
+
+            <argument name="resourceModel" xsi:type="string">
+                Codilar\ProductEnquiry\Model\ResourceModel\ProductEnquiry
+            </argument>
+        </arguments>
+    </virtualType>
+
+
+<!-- ui component -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+
+        <arguments>
+
+            <argument name="collections" xsi:type="array">
+
+                <item
+                    name="codilar_productenquiry_listing_data_source"
+                    xsi:type="string"
+                >
+                    Codilar\ProductEnquiry\Model\ResourceModel\ProductEnquiry\Grid\Collection
+                </item>
+
+            </argument>
+
+        </arguments>
+
+    </type>
+
+
 </config>

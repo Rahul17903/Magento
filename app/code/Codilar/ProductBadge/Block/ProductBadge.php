@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace Codilar\ProductBadge\Block;
 
-use Magento\Catalog\Model\Product;
-use Magento\Framework\View\Element\Template;
+use Magento\Catalog\Block\Product\View;
 
-class Badge extends Template
+class ProductBadge extends View
 {
-    public function getBadge(Product $product): ?string
+    public function getBadge(): ?string
     {
         try {
+            $product = $this->getProduct();
+
+            if (!$product) {
+                return null;
+            }
+
             $badge = $product->getAttributeText('product_badge');
 
             if (!$badge || $badge === 'No Badge') {
