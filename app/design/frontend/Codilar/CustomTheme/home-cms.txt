@@ -1,0 +1,250 @@
+<div class="ramadan-top-banner">
+    <div class="ramadan-top-banner__content">
+
+        <div class="ramadan-top-banner__title">
+            CROCS <span>RAMADAN</span>
+        </div>
+
+        <div class="ramadan-top-banner__line"></div>
+
+        <div class="ramadan-top-banner__text">
+            Jangan lewatkan penawaran menarik ini
+        </div>
+
+    </div>
+</div>
+<div class="ramadan-banner"
+     style="--ramadan-banner-image: url('{{media url=wysiwyg/ramadan-banner.jpg}}');">
+    <div class="ramadan-banner__content">
+        <p class="ramadan-banner__subtitle">RAMADAN SPECIAL</p>
+        <h2 class="ramadan-banner__title">Exclusive Ramadan Offers</h2>
+        <p class="ramadan-banner__description">
+            Celebrate Ramadan with special offers on selected products.
+        </p>
+        <a href="{{store url='gear/watches.html'}}" class="ramadan-banner__button">
+            Shop Now
+        </a>
+    </div>
+</div>
+<div class="ramadan-countdown">
+
+    <div class="ramadan-countdown__inner">
+
+        <h2 class="ramadan-countdown__title">
+            Hurry Up! Ramadan Promos End In
+        </h2>
+
+        <div class="ramadan-countdown__timer">
+
+            <div class="ramadan-countdown__item">
+                <div id="ramadan-days" class="ramadan-countdown__number">
+                    00
+                </div>
+                <span class="ramadan-countdown__label">
+                    Days
+                </span>
+            </div>
+
+            <div class="ramadan-countdown__item">
+                <div id="ramadan-hours" class="ramadan-countdown__number">
+                    00
+                </div>
+                <span class="ramadan-countdown__label">
+                    Hr
+                </span>
+            </div>
+
+            <div class="ramadan-countdown__item">
+                <div id="ramadan-minutes" class="ramadan-countdown__number">
+                    00
+                </div>
+                <span class="ramadan-countdown__label">
+                    Min
+                </span>
+            </div>
+
+            <div class="ramadan-countdown__item">
+                <div id="ramadan-seconds" class="ramadan-countdown__number">
+                    00
+                </div>
+                <span class="ramadan-countdown__label">
+                    Sec
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<section class="campaign-section">
+    <div class="campaign-section__container">
+        <h2 class="campaign-section__title">
+            Claim Your Discount Before It Ends!
+        </h2>
+
+        <div class="campaign-section__cards">
+            <div class="campaign-card">
+                <div class="campaign-card__image">
+                    <img
+                        src="{{media url='wysiwyg/gear/campaign1.jpeg'}}"
+                        alt="Campaign 1"
+                    >
+                </div>
+
+                <div class="campaign-card__coupon">
+                    <span class="campaign-card__code">
+                        CROFFER12
+                    </span>
+
+                    <button
+                        type="button"
+                        class="campaign-card__copy"
+                        data-code="CROFFER12"
+                        aria-label="Copy coupon code"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <rect
+                                x="9"
+                                y="9"
+                                width="10"
+                                height="10"
+                                rx="1">
+                            </rect>
+                            <path
+                                d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="campaign-card">
+                <div class="campaign-card__image">
+                    <img
+                        src="{{media url='wysiwyg/gear/camp2.jpg'}}"
+                        alt="Campaign 2"
+                    >
+                </div>
+
+                <div class="campaign-card__coupon">
+                    <span class="campaign-card__code">
+                        CROFFER12
+                    </span>
+
+                    <button
+                        type="button"
+                        class="campaign-card__copy"
+                        data-code="CROFFER12"
+                        aria-label="Copy coupon code"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <rect
+                                x="9"
+                                y="9"
+                                width="10"
+                                height="10"
+                                rx="1">
+                            </rect>
+                            <path
+                                d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="terms-section">
+            <h2 class="terms-section__title">
+                Terms &amp; Conditions
+            </h2>
+
+            <div class="terms-section__content">
+                <p class="terms-section__subtitle">
+                    Product Information
+                </p>
+
+                <ol class="terms-section__list">
+                    <li>
+                        All material and information relating to products presented
+                        by Crocs.co.id is intended to be used for personal
+                        educational or informational purposes only.
+                    </li>
+
+                    <li>
+                        The product statements are not intended to treat, cure,
+                        boost, support, or prevent any health, sport, and/or
+                        fitness condition. References to any products, services,
+                        processes or other information by trade name, trademark,
+                        manufacturer, supplier, or otherwise does not constitute
+                        or imply endorsement, sponsorship or recommendation
+                        thereof by Crocs.co.id. Product claims or descriptions on
+                        Crocs.co.id have been provided to us by relevant brand
+                        owners or pursuant to customers review and Crocs.co.id
+                        has not independently verified such claims or descriptions.
+                    </li>
+
+                    <li>
+                        All products should be used strictly in accordance with
+                        their instructions, precautions, and guidelines.
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+require([
+    'jquery'
+], function ($) {
+    'use strict';
+
+    var endDate = new Date('2026-09-30T23:59:59').getTime();
+
+    function updateCountdown() {
+        try {
+            var now = new Date().getTime();
+            var remaining = endDate - now;
+
+            if (remaining <= 0) {
+                $('#ramadan-days').text('00');
+                $('#ramadan-hours').text('00');
+                $('#ramadan-minutes').text('00');
+                $('#ramadan-seconds').text('00');
+
+                return;
+            }
+
+            var days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+
+            var hours = Math.floor(
+                (remaining % (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+            var minutes = Math.floor(
+                (remaining % (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+            var seconds = Math.floor(
+                (remaining % (1000 * 60)) /
+                1000
+            );
+
+            $('#ramadan-days').text(String(days).padStart(2, '0'));
+            $('#ramadan-hours').text(String(hours).padStart(2, '0'));
+            $('#ramadan-minutes').text(String(minutes).padStart(2, '0'));
+            $('#ramadan-seconds').text(String(seconds).padStart(2, '0'));
+
+        } catch (error) {
+            console.error('Countdown error:', error);
+        }
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+});
+</script>
