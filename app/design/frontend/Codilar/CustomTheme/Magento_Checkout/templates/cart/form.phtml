@@ -1,7 +1,7 @@
 <?php
 /**
  * Cart form.
- *
+ * @var \Magento\Framework\Escaper $escaper
  * @var \Magento\Checkout\Block\Cart\Grid $block
  */
 
@@ -13,7 +13,7 @@ $mergedCells = $taxHelper->displayCartPriceInclTax() ? 2 : 1;
 
 <?= $block->getChildHtml('form_before') ?>
 
-<form action="<?= $block->escapeUrl($block->getUrl('checkout/cart/updatePost')) ?>"
+<form action="<?= $escaper->escapeUrl($block->getUrl('checkout/cart/updatePost')) ?>"
       method="post"
       id="form-validate"
       data-mage-init='{"validation":{}}'
@@ -23,7 +23,7 @@ $mergedCells = $taxHelper->displayCartPriceInclTax() ? 2 : 1;
 
     <div class="cart-page-header">
         <h1 class="cart-title">
-            <?= $block->escapeHtml(__('My Bag')) ?>
+            <?= $escaper->escapeHtml(__('My Bag')) ?>
         </h1>
 
         <span class="item-count">
@@ -42,7 +42,7 @@ $mergedCells = $taxHelper->displayCartPriceInclTax() ? 2 : 1;
             <table id="shopping-cart-table" class="cart items data table">
 
                 <caption class="table-caption">
-                    <?= $block->escapeHtml(__('Shopping Cart Items')) ?>
+                    <?= $escaper->escapeHtml(__('Shopping Cart Items')) ?>
                 </caption>
 
                 <?php foreach ($block->getItems() as $_item): ?>

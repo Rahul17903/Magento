@@ -1,5 +1,8 @@
 <?php
-/** @var \Magento\Checkout\Block\Cart\Item\Renderer $block */
+/**
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Magento\Checkout\Block\Cart\Item\Renderer $block
+ */
 
 $_item = $block->getItem();
 $product = $_item->getProduct();
@@ -13,8 +16,8 @@ $product = $_item->getProduct();
 
         <?php if ($block->hasProductUrl()): ?>
 
-            <a href="<?= $block->escapeUrl($block->getProductUrl()) ?>"
-               title="<?= $block->escapeHtmlAttr($block->getProductName()) ?>"
+            <a href="<?= $escaper->escapeUrl($block->getProductUrl()) ?>"
+               title="<?= $escaper->escapeHtmlAttr($block->getProductName()) ?>"
                class="product-item-photo">
 
                 <?= $block->getImage(
@@ -47,13 +50,13 @@ $product = $_item->getProduct();
 
                     <?php if ($block->hasProductUrl()): ?>
 
-                        <a href="<?= $block->escapeUrl($block->getProductUrl()) ?>">
-                            <?= $block->escapeHtml($block->getProductName()) ?>
+                        <a href="<?= $escaper->escapeUrl($block->getProductUrl()) ?>">
+                            <?= $escaper->escapeHtml($block->getProductName()) ?>
                         </a>
 
                     <?php else: ?>
 
-                        <?= $block->escapeHtml($block->getProductName()) ?>
+                        <?= $escaper->escapeHtml($block->getProductName()) ?>
 
                     <?php endif; ?>
 
@@ -81,7 +84,7 @@ $product = $_item->getProduct();
 
                     <button type="button"
                             class="qty-minus"
-                            aria-label="<?= $block->escapeHtmlAttr(__('Decrease quantity')) ?>">
+                            aria-label="<?= $escaper->escapeHtmlAttr(__('Decrease quantity')) ?>">
                         −
                     </button>
 
@@ -90,12 +93,12 @@ $product = $_item->getProduct();
                            value="<?= (float) $block->getQty() ?>"
                            type="number"
                            min="1"
-                           title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                           title="<?= $escaper->escapeHtmlAttr(__('Qty')) ?>"
                            class="input-text qty" />
 
                     <button type="button"
                             class="qty-plus"
-                            aria-label="<?= $block->escapeHtmlAttr(__('Increase quantity')) ?>">
+                            aria-label="<?= $escaper->escapeHtmlAttr(__('Increase quantity')) ?>">
                         +
                     </button>
 

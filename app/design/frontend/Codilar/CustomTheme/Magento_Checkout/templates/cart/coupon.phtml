@@ -1,7 +1,7 @@
 <?php
 /**
  * Cart coupon.
- *
+ * @var \Magento\Framework\Escaper $escaper
  * @var \Magento\Checkout\Block\Cart\Coupon $block
  */
 ?>
@@ -15,7 +15,7 @@
                 role="heading"
                 aria-level="2">
 
-            <?= $block->escapeHtml(__('Redeem Promo Code')) ?>
+            <?= $escaper->escapeHtml(__('Redeem Promo Code')) ?>
 
         </strong>
 
@@ -26,7 +26,7 @@
          aria-labelledby="block-discount-heading">
 
         <form id="discount-coupon-form"
-              action="<?= $block->escapeUrl(
+              action="<?= $escaper->escapeUrl(
                   $block->getUrl('checkout/cart/couponPost')
               ) ?>"
               method="post"
@@ -57,10 +57,10 @@
                                class="input-text"
                                id="coupon_code"
                                name="coupon_code"
-                               value="<?= $block->escapeHtmlAttr(
+                               value="<?= $escaper->escapeHtmlAttr(
                                    $block->getCouponCode()
                                ) ?>"
-                               placeholder="<?= $block->escapeHtmlAttr(
+                               placeholder="<?= $escaper->escapeHtmlAttr(
                                    __('Input Promo Code')
                                ) ?>"
                                autocomplete="off" />
@@ -72,7 +72,7 @@
                                     type="button">
 
                                 <span>
-                                    <?= $block->escapeHtml(__('Apply')) ?>
+                                    <?= $escaper->escapeHtml(__('Apply')) ?>
                                 </span>
 
                             </button>
@@ -83,7 +83,7 @@
                                     type="button">
 
                                 <span>
-                                    <?= $block->escapeHtml(__('Cancel')) ?>
+                                    <?= $escaper->escapeHtml(__('Cancel')) ?>
                                 </span>
 
                             </button>

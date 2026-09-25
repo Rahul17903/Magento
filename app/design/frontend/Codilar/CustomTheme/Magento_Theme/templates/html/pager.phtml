@@ -1,7 +1,7 @@
 <?php
 /**
  * Custom pagination
- *
+ * @var \Magento\Framework\Escaper $escaper
  * @var \Magento\Theme\Block\Html\Pager $block
  */
 
@@ -20,8 +20,8 @@ if (!$collection || $lastPage <= 1) {
     <?php if ($currentPage > 1): ?>
 
         <a class="pagination-first"
-           href="<?= $block->escapeUrl($block->getFirstPageUrl()) ?>"
-           aria-label="<?= $block->escapeHtmlAttr(__('First Page')) ?>">
+           href="<?= $escaper->escapeUrl($block->getFirstPageUrl()) ?>"
+           aria-label="<?= $escaper->escapeHtmlAttr(__('First Page')) ?>">
             <span class="double-arrow double-arrow-left"></span>
         </a>
 
@@ -39,14 +39,14 @@ if (!$collection || $lastPage <= 1) {
     <?php if ($currentPage > 1): ?>
 
         <a class="pagination-prev"
-           href="<?= $block->escapeUrl($block->getPreviousPageUrl()) ?>">
-            <?= $block->escapeHtml(__('Prev')) ?>
+           href="<?= $escaper->escapeUrl($block->getPreviousPageUrl()) ?>">
+            <?= $escaper->escapeHtml(__('Prev')) ?>
         </a>
 
     <?php else: ?>
 
         <span class="pagination-prev disabled">
-            <?= $block->escapeHtml(__('Prev')) ?>
+            <?= $escaper->escapeHtml(__('Prev')) ?>
         </span>
 
     <?php endif; ?>
@@ -66,7 +66,6 @@ if (!$collection || $lastPage <= 1) {
 
         } elseif ($currentPage === 1) {
 
-            //  Page 1
             $pages = [1, 2, 'dots', $lastPage ];
 
         } elseif ($currentPage === 2) {
@@ -84,7 +83,7 @@ if (!$collection || $lastPage <= 1) {
         } else {
 
             $pages = [1, 'dots', $currentPage - 1, $currentPage, $currentPage + 1, 'dots', $lastPage ];
-              
+
         }
         ?>
 
@@ -97,16 +96,16 @@ if (!$collection || $lastPage <= 1) {
             <?php elseif ($page == $currentPage): ?>
 
                 <span class="pagination-page current">
-                    <?= $block->escapeHtml($page) ?>
+                    <?= $escaper->escapeHtml($page) ?>
                 </span>
 
             <?php else: ?>
 
                 <a
                     class="pagination-page"
-                    href="<?= $block->escapeUrl($block->getPageUrl($page)) ?>"
+                    href="<?= $escaper->escapeUrl($block->getPageUrl($page)) ?>"
                 >
-                    <?= $block->escapeHtml($page) ?>
+                    <?= $escaper->escapeHtml($page) ?>
                 </a>
 
             <?php endif; ?>
@@ -120,14 +119,14 @@ if (!$collection || $lastPage <= 1) {
     <?php if ($currentPage < $lastPage): ?>
 
         <a class="pagination-next"
-           href="<?= $block->escapeUrl($block->getNextPageUrl()) ?>">
-            <?= $block->escapeHtml(__('Next')) ?>
+           href="<?= $escaper->escapeUrl($block->getNextPageUrl()) ?>">
+            <?= $escaper->escapeHtml(__('Next')) ?>
         </a>
 
     <?php else: ?>
 
         <span class="pagination-next disabled">
-            <?= $block->escapeHtml(__('Next')) ?>
+            <?= $escaper->escapeHtml(__('Next')) ?>
         </span>
 
     <?php endif; ?>
@@ -137,8 +136,8 @@ if (!$collection || $lastPage <= 1) {
     <?php if ($currentPage < $lastPage): ?>
 
         <a class="pagination-last"
-           href="<?= $block->escapeUrl($block->getLastPageUrl()) ?>"
-           aria-label="<?= $block->escapeHtmlAttr(__('Last Page')) ?>">
+           href="<?= $escaper->escapeUrl($block->getLastPageUrl()) ?>"
+           aria-label="<?= $escaper->escapeHtmlAttr(__('Last Page')) ?>">
             <span class="double-arrow double-arrow-right"></span>
         </a>
 
